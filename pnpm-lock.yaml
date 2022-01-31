@@ -3,7 +3,7 @@ lockfileVersion: 5.3
 specifiers:
   '@sveltejs/kit': next
   '@types/node': ^17.0.13
-  mdsvex: ^0.9.8
+  mdsvex: ^0.10.5
   prettier: ^2.5.1
   svelte: ^3.46.3
   svelte-preprocess: ^4.10.2
@@ -14,7 +14,7 @@ specifiers:
 devDependencies:
   '@sveltejs/kit': 1.0.0-next.251_svelte@3.46.3
   '@types/node': 17.0.13
-  mdsvex: 0.9.8_svelte@3.46.3
+  mdsvex: 0.10.5_svelte@3.46.3
   prettier: 2.5.1
   svelte: 3.46.3
   svelte-preprocess: 4.10.2_svelte@3.46.3+typescript@4.5.5
@@ -414,8 +414,8 @@ packages:
       sourcemap-codec: 1.4.8
     dev: true
 
-  /mdsvex/0.9.8_svelte@3.46.3:
-    resolution: {integrity: sha512-5QvThjRKoKkGH00qdHxLZ5ROd80RgGiJvM2B9opeFreaiGFTLoKKFUgEBCslLrwM24cVGJLmIM3rR83OFDf3tQ==}
+  /mdsvex/0.10.5_svelte@3.46.3:
+    resolution: {integrity: sha512-/B23WZn5Vjrjh7Qp2YsOXLkU9YFm59IEylKNXC10o05ZaCP4LNv32tGXKP6aEssss6hk/LdISJuneELHFIS2pQ==}
     peerDependencies:
       svelte: 3.x
     dependencies:
