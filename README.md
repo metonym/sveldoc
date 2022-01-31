@@ -14,10 +14,10 @@ The easiest way to get started is to use `createConfig` to create a base `svelte
 
 ### `createConfig`
 
-Using `createConfig` requires `mdsvex` and `svelte-preprocess` to be installed.
+Using `createConfig` requires `svelte-preprocess` to be installed.
 
 ```bash
-pnpm i -D mdsvex svelte-preprocess
+pnpm i -D svelte-preprocess
 ```
 
 **Minimal**
@@ -80,7 +80,7 @@ interface CreateConfigOptions extends SvelteKitConfig {
    *   smartypants: false
    * }
    */
-  mdsvexOptions?: Record<string, any>;
+  mdsvexOptions?: MdsvexOptions;
 
   /**
    * Specify the SvelteKit adapter.
