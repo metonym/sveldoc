@@ -7,13 +7,13 @@
  *  - which `@sveltejs/adapter-*` to use, if any -> dynamically import it
  *
  * 2. Should `mdsvex` be installed by default?
- * 3. Strongly type `mdsvex` options.
  */
 
 import path from "path";
 import { preprocessReadme, pluginReadme } from "./integrations";
 import { mdsvex } from "mdsvex";
 import preprocess from "svelte-preprocess";
+import type { MdsvexOptions } from "mdsvex";
 import type { Config as SvelteKitConfig, Adapter } from "@sveltejs/kit";
 import type { AliasOptions } from "vite";
 
@@ -35,7 +35,7 @@ interface CreateConfigOptions extends SvelteKitConfig {
    *   smartypants: false
    * }
    */
-  mdsvexOptions?: Record<string, any>;
+  mdsvexOptions?: MdsvexOptions;
 
   /**
    * Specify the SvelteKit adapter.
