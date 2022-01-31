@@ -7,7 +7,7 @@
     "outDir": "lib",
     "skipLibCheck": true,
     "strict": true,
-    "target": "ESNext"
+    "target": "ES6"
   },
   "include": ["src/*"]
 }
