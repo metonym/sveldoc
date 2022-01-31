@@ -66,9 +66,9 @@ export const transformReadme = ({ source, filename, noEval }: TransformReadmeOpt
           line_modified += html + "\n\n";
         }
 
-        line_modified += "```svelte" + "\n";
+        line_modified += "\n" + "```svelte" + "\n";
         line_modified += source + "\n";
-        line_modified += "```";
+        line_modified += "```" + "\n";
 
         return line_modified;
       }
