@@ -1,0 +1,47 @@
+{
+  "name": "sveldoc",
+  "version": "0.1.0",
+  "license": "MIT",
+  "description": "Readme-driven Development for SvelteKit",
+  "author": "Eric Liu (https://github.com/metonym)",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "scripts": {
+    "test": "vitest",
+    "format": "prettier --ignore-path \".gitignore\" --write \"./**/*.{md,ts}\"",
+    "prepack": "tsc"
+  },
+  "devDependencies": {
+    "@sveltejs/kit": "next",
+    "@types/node": "^17.0.13",
+    "mdsvex": "^0.9.8",
+    "prettier": "^2.5.1",
+    "svelte": "^3.46.3",
+    "svelte-preprocess": "^4.10.2",
+    "typescript": "^4.5.5",
+    "vite": "^2.7.13",
+    "vitest": "^0.2.5"
+  },
+  "prettier": {
+    "printWidth": 100
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/metonym/sveldoc"
+  },
+  "homepage": "https://github.com/metonym/sveldoc",
+  "bugs": "https://github.com/metonym/sveldoc/issues",
+  "keywords": [
+    "svelte",
+    "compiler",
+    "svelte-preprocessor",
+    "preprocessor",
+    "vite",
+    "vite plugin",
+    "readme-driven development",
+    "rdd"
+  ],
+  "files": [
+    "lib"
+  ]
+}
