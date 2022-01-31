@@ -18,6 +18,7 @@ export let type = "button";
   <slot />
 </button>
 
+
 ```svelte
 <script>
   import ComponentDefault from "./component";
@@ -38,6 +39,7 @@ export let type = "button";
 </style>
 
 ```
+
 <!-- example-end -->
 
 <!-- prettier-ignore-end -->
