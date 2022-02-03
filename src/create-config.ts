@@ -100,7 +100,6 @@ export const createConfig: (config: CreateConfigOptions) => SvelteKitConfig = (c
     ].filter(Boolean),
     ...config,
     kit: {
-      target: "#svelte",
       adapter: config?.adapter,
       files: config?.files,
       ...config?.kit,
