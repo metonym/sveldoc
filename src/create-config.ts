@@ -15,7 +15,7 @@ import { mdsvex } from "mdsvex";
 import preprocess from "svelte-preprocess";
 import type { MdsvexOptions } from "mdsvex";
 import type { Config as SvelteKitConfig, Adapter } from "@sveltejs/kit";
-import type { AliasOptions } from "vite";
+import type { AliasOptions, UserConfig as ViteConfig } from "vite";
 
 interface CreateConfigOptions extends SvelteKitConfig {
   /**
@@ -78,8 +78,13 @@ interface CreateConfigOptions extends SvelteKitConfig {
  * Note: `svelte-preprocess` and `mdsvex` must
  * be installed as development dependencies.
  */
-export const createConfig: (config: CreateConfigOptions) => SvelteKitConfig = (config) => {
-  const vite = typeof config?.kit?.vite === "function" ? config.kit.vite() : config?.kit?.vite;
+export const createConfig: (config: CreateConfigOptions) => Promise<SvelteKitConfig> = async (
+  config
+) => {
+  const vite =
+    typeof config?.kit?.vite === "function"
+      ? ((await config.kit.vite()) as ViteConfig)
+      : config?.kit?.vite;
   const alias: AliasOptions = {};
   const files = config?.files ?? config?.kit?.files;
 
