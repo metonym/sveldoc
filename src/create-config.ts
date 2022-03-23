@@ -102,7 +102,7 @@ export const createConfig: (config: CreateConfigOptions) => Promise<SvelteKitCon
         smartypants: false,
         ...config?.mdsvexOptions,
       }),
-    ].filter(Boolean),
+    ],
     ...config,
     kit: {
       adapter: config?.adapter,
