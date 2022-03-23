@@ -107,6 +107,9 @@ export const createConfig: (config: CreateConfigOptions) => Promise<SvelteKitCon
     kit: {
       adapter: config?.adapter,
       files: config?.files,
+      prerender: {
+        default: true
+      },
       ...config?.kit,
       vite: {
         ...vite,
