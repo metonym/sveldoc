@@ -1,7 +1,7 @@
 import { readFileSync, writeFileSync } from "fs";
 import { transformReadme } from "./transform-readme";
 import { match } from "./utils";
-import type { Plugin } from "vite";
+import type { PluginOption } from "vite";
 import type { PreprocessorGroup } from "svelte/types/compiler/preprocess";
 
 /**
@@ -21,7 +21,7 @@ export const preprocessReadme: () => Pick<PreprocessorGroup, "markup"> = () => (
  *
  * Only executes when building the app.
  */
-export const pluginReadme: () => Plugin = () => {
+export const pluginReadme: () => PluginOption = () => {
   let filename: null | string = null;
 
   return {

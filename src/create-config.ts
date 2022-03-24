@@ -108,7 +108,7 @@ export const createConfig: (config: CreateConfigOptions) => Promise<SvelteKitCon
       adapter: config?.adapter,
       files: config?.files,
       prerender: {
-        default: true
+        default: true,
       },
       ...config?.kit,
       vite: {
@@ -132,7 +132,7 @@ export const createConfig: (config: CreateConfigOptions) => Promise<SvelteKitCon
             ...vite?.server?.fs,
           },
         },
-      },
+      } as any,
     },
   };
 };
