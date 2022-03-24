@@ -25,7 +25,7 @@ export const pluginReadme: () => PluginOption = () => {
   let filename: null | string = null;
 
   return {
-    name: "vite-plugin-readme",
+    name: "vite:readme",
     apply: "build",
     load(id) {
       if (match.readmeFile(id)) {
