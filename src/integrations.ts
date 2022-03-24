@@ -11,7 +11,7 @@ import type { PreprocessorGroup } from "svelte/types/compiler/preprocess";
 export const preprocessReadme: () => Pick<PreprocessorGroup, "markup"> = () => ({
   markup: ({ content: source, filename }) => {
     if (!filename || !match.readmeFile(filename)) return;
-    return { code: transformReadme({ source, filename }) };
+    return transformReadme({ source, filename });
   },
 });
 
@@ -41,7 +41,7 @@ export const pluginReadme: () => PluginOption = () => {
             source: readFileSync(filename, "utf-8"),
             filename,
             noEval: true,
-          })
+          }).code
         );
     },
   };
