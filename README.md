@@ -126,7 +126,7 @@ If using `vite.resolve.alias` to alias the package name in `svelte.config.js`, y
 {
   "compilerOptions: {
      "paths": {
-+      "package-name": ["src/lib"]
++      "<package-name>": ["src"]
      }
   }
 }
