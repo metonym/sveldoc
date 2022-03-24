@@ -1,7 +1,7 @@
 import { readFileSync, writeFileSync } from "fs";
 import { transformReadme } from "./transform-readme";
 import { match } from "./utils";
-import type { Plugin } from "vite";
+import type { PluginOption } from "vite";
 import type { PreprocessorGroup } from "svelte/types/compiler/preprocess";
 
 /**
@@ -11,7 +11,7 @@ import type { PreprocessorGroup } from "svelte/types/compiler/preprocess";
 export const preprocessReadme: () => Pick<PreprocessorGroup, "markup"> = () => ({
   markup: ({ content: source, filename }) => {
     if (!filename || !match.readmeFile(filename)) return;
-    return { code: transformReadme({ source, filename }) };
+    return transformReadme({ source, filename });
   },
 });
 
@@ -21,11 +21,11 @@ export const preprocessReadme: () => Pick<PreprocessorGroup, "markup"> = () => (
  *
  * Only executes when building the app.
  */
-export const pluginReadme: () => Plugin = () => {
+export const pluginReadme: () => PluginOption = () => {
   let filename: null | string = null;
 
   return {
-    name: "vite-plugin-readme",
+    name: "vite:readme",
     apply: "build",
     load(id) {
       if (match.readmeFile(id)) {
@@ -41,7 +41,7 @@ export const pluginReadme: () => Plugin = () => {
             source: readFileSync(filename, "utf-8"),
             filename,
             noEval: true,
-          })
+          }).code
         );
     },
   };

@@ -1,5 +1,5 @@
 import { readFileSync, existsSync } from "fs";
-import { sep } from "path";
+import { sep, resolve } from "path";
 import { extractComponentPath, match, parseComponent } from "./utils";
 
 const BLANK_LINE = "<!-- BLANK -->";
@@ -18,6 +18,7 @@ interface TransformReadmeOptions {
 export const transformReadme = ({ source, filename, noEval }: TransformReadmeOptions) => {
   let script_module_unique_lines = new Set();
   let script_unique_lines = new Set();
+  let component_paths = new Set<string>();
   let styles = "";
   let lines = source
     .split("\n")
@@ -52,6 +53,8 @@ export const transformReadme = ({ source, filename, noEval }: TransformReadmeOpt
 
         let source = readFileSync(path_component, "utf-8");
         let line_modified = line + "\n";
+
+        component_paths.add(resolve(path_component));
 
         const { html, css, script, module } = parseComponent({
           source,
@@ -100,7 +103,13 @@ export const transformReadme = ({ source, filename, noEval }: TransformReadmeOpt
     content_style += "</style>\n";
   }
 
-  if (noEval) return lines;
+  let code = lines;
+  let dependencies: string[] = [...component_paths];
 
-  return content_script_module + content_script + content_style + lines;
+  if (noEval) return { code, dependencies };
+
+  return {
+    code: content_script_module + content_script + content_style + code,
+    dependencies,
+  };
 };
