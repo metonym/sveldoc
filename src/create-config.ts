@@ -103,7 +103,6 @@ export const createConfig: (config: CreateConfigOptions) => Promise<SvelteKitCon
         ...config?.mdsvexOptions,
       }),
     ],
-    ...config,
     kit: {
       adapter: config?.adapter,
       files: config?.files,
@@ -132,7 +131,7 @@ export const createConfig: (config: CreateConfigOptions) => Promise<SvelteKitCon
             ...vite?.server?.fs,
           },
         },
-      } as any,
+      },
     },
   };
 };
