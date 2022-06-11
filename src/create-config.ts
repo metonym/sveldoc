@@ -131,7 +131,7 @@ export const createConfig: (config: CreateConfigOptions) => Promise<SvelteKitCon
             ...vite?.server?.fs,
           },
         },
-      } as any,
+      },
     },
   };
 };
