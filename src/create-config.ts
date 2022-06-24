@@ -1,18 +1,7 @@
-/**
- * Future work
- *
- * 1. Read `package.json` to infer:
- *  - name
- *  - if `svelte-preprocess` is installed -> dynamically import it
- *  - which `@sveltejs/adapter-*` to use, if any -> dynamically import it
- *
- * 2. Should `mdsvex` be installed by default?
- */
-
 import path from "path";
 import { preprocessReadme, pluginReadme } from "./integrations";
 import { mdsvex } from "mdsvex";
-import preprocess from "svelte-preprocess";
+import { typescript } from "svelte-preprocess-esbuild";
 import type { MdsvexOptions } from "mdsvex";
 import type { Config as SvelteKitConfig, Adapter } from "@sveltejs/kit";
 import type { AliasOptions, UserConfig as ViteConfig } from "vite";
@@ -95,7 +84,7 @@ export const createConfig: (config: CreateConfigOptions) => Promise<SvelteKitCon
   return {
     extensions: [".svelte", ".md"],
     preprocess: [
-      preprocess(),
+      typescript(),
       preprocessReadme(),
       mdsvex({
         extensions: [".md"],
