@@ -40,7 +40,6 @@ export let id = undefined;
     color: red;
   }
 </style>
-
 ```
 
 <!-- example-end -->
@@ -68,7 +67,6 @@ export let id = undefined;
     font-size: 2rem;
   }
 </style>
-
 ```
 
 <!-- example-end -->
@@ -78,7 +76,6 @@ export let id = undefined;
 
 ```svelte
 <slot />
-
 ```
 
 <!-- example-end -->

@@ -37,7 +37,6 @@ export let type = "button";
     color: red;
   }
 </style>
-
 ```
 
 <!-- example-end -->
