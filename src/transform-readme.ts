@@ -36,7 +36,7 @@ export const transformReadme = ({ source, filename, noEval }: TransformReadmeOpt
           }
         }
 
-        if (!next_line) return line;
+        if (!next_line) return line + "\n";
 
         const path_component = extractComponentPath(line);
         const diagnostic = filename.split(sep).pop() + ` L${index + 1}:`;
@@ -70,7 +70,7 @@ export const transformReadme = ({ source, filename, noEval }: TransformReadmeOpt
         }
 
         line_modified += "\n" + "```svelte" + "\n";
-        line_modified += source + "\n";
+        line_modified += source;
         line_modified += "```" + "\n";
 
         return line_modified;

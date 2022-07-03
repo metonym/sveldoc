@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync } from "fs";
+import fs from "fs";
 import { transformReadme } from "./transform-readme";
 import { match } from "./utils";
 import type { PluginOption } from "vite";
@@ -6,9 +6,9 @@ import type { PreprocessorGroup } from "svelte/types/compiler/preprocess";
 
 /**
  * Svelte preprocessor that transforms
- * content in a `README.md` file.
+ * code blocks in your `README.md`.
  */
-export const preprocessReadme: () => Pick<PreprocessorGroup, "markup"> = () => ({
+export const preprocessReadme = (): Pick<PreprocessorGroup, "markup"> => ({
   markup: ({ content: source, filename }) => {
     if (!filename || !match.readmeFile(filename)) return;
     return transformReadme({ source, filename });
@@ -16,12 +16,12 @@ export const preprocessReadme: () => Pick<PreprocessorGroup, "markup"> = () => (
 });
 
 /**
- * Vite plugin that transforms the `README.md`
+ * Vite plugin that transforms `README.md`
  * but omits adding Svelte stuff.
  *
  * Only executes when building the app.
  */
-export const pluginReadme: () => PluginOption = () => {
+export const pluginReadme = (): PluginOption => {
   let filename: null | string = null;
 
   return {
@@ -34,15 +34,16 @@ export const pluginReadme: () => PluginOption = () => {
       }
     },
     writeBundle() {
-      if (filename)
-        writeFileSync(
+      if (filename) {
+        fs.writeFileSync(
           filename,
           transformReadme({
-            source: readFileSync(filename, "utf-8"),
+            source: fs.readFileSync(filename, "utf-8"),
             filename,
             noEval: true,
           }).code
         );
+      }
     },
   };
 };
