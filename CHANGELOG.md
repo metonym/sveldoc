@@ -5,6 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.6.0](https://github.com/metonym/sveldoc/releases/tag/v0.6.0) - 2022-07-03
+
+**Breaking Changes**
+
+- revert to using `svelte-preprocess` instead of `svelte-preprocess-esbuild` in `createConfig`
+
+**Features**
+
+- omit trailing line break in output to match latest Prettier behavior
+
+**Fixes**
+
+- append line break if now new line
+
+
 ## [0.5.0](https://github.com/metonym/sveldoc/releases/tag/v0.5.0) - 2022-06-24
 
 **Breaking Changes**
