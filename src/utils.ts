@@ -41,10 +41,10 @@ export const parseComponent = ({ source, filename }: ParseComponentOptions) => {
   return parsed;
 };
 
-export const match = {
-  readmeFile: (filename: string) => /readme.md$/i.test(filename),
-  exampleStart: (line: string) => /^<!-- example-start/.test(line),
-  exampleEnd: (line: string) => /^<!-- example-end -->/.test(line),
+export const match: Record<string, (str: string) => boolean> = {
+  readmeFile: (filename) => /readme.md$/i.test(filename),
+  exampleStart: (line) => /^<!-- example-start/.test(line),
+  exampleEnd: (line) => /^<!-- example-end -->/.test(line),
 };
 
 export const extractComponentPath = (line: string) =>
