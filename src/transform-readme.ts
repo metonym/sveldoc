@@ -70,7 +70,7 @@ export const transformReadme = ({ source, filename, noEval }: TransformReadmeOpt
         }
 
         line_modified += "\n" + "```svelte" + "\n";
-        line_modified += source + "\n";
+        line_modified += source;
         line_modified += "```" + "\n";
 
         return line_modified;
