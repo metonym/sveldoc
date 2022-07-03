@@ -1,14 +1,3 @@
-/**
- * Future work
- *
- * 1. Read `package.json` to infer:
- *  - name
- *  - if `svelte-preprocess` is installed -> dynamically import it
- *  - which `@sveltejs/adapter-*` to use, if any -> dynamically import it
- *
- * 2. Should `mdsvex` be installed by default?
- */
-
 import path from "path";
 import { preprocessReadme, pluginReadme } from "./integrations";
 import { mdsvex } from "mdsvex";
@@ -71,12 +60,10 @@ interface CreateConfigOptions extends SvelteKitConfig {
 }
 
 /**
- * Creates a `svelte.config.js` with sensible defaults.
- * Automatically includes `readme` preprocessor and
- * `sveldoc` vite plugin in the build process.
+ * Creates a `svelte.config.js` object with
+ * `svelte-preprocess`, `readme`, and `mdsvex` preprocessors.
  *
- * Note: `svelte-preprocess` and `mdsvex` must
- * be installed as development dependencies.
+ * `svelte-preprocess` be installed as development dependency.
  */
 export const createConfig: (config: CreateConfigOptions) => Promise<SvelteKitConfig> = async (
   config
