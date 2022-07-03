@@ -36,7 +36,7 @@ export const transformReadme = ({ source, filename, noEval }: TransformReadmeOpt
           }
         }
 
-        if (!next_line) return line;
+        if (!next_line) return line + "\n";
 
         const path_component = extractComponentPath(line);
         const diagnostic = filename.split(sep).pop() + ` L${index + 1}:`;
