@@ -1,21 +1,13 @@
 import path from "path";
-import { preprocessReadme, pluginReadme } from "./integrations";
 import { mdsvex } from "mdsvex";
 import preprocess from "svelte-preprocess";
+import { svelte } from "@sveltejs/vite-plugin-svelte";
 import type { MdsvexOptions } from "mdsvex";
-import type { Config as SvelteKitConfig, Adapter } from "@sveltejs/kit";
-import type { AliasOptions, UserConfig as ViteConfig } from "vite";
+import type { Config as SvelteKitConfig } from "@sveltejs/kit";
+import type { AliasOptions, UserConfig } from "vite";
+import { preprocessReadme, pluginReadme } from "./integrations";
 
 interface CreateConfigOptions extends SvelteKitConfig {
-  /**
-   * Specify the package name.
-   *
-   * The default resolution path is assumed to be `src/lib`;
-   * override it using `files.lib` or `kit.files.lib`.
-   * @example "package-name"
-   */
-  name?: string;
-
   /**
    * Options passed to `mdsvex`.
    * @default
@@ -25,60 +17,14 @@ interface CreateConfigOptions extends SvelteKitConfig {
    * }
    */
   mdsvexOptions?: MdsvexOptions;
-
-  /**
-   * Specify the SvelteKit adapter.
-   * @example
-   * import adapter from "@sveltejs/adapter-static";
-   *
-   * createConfig({
-   *   adapter: adapter()
-   * });
-   */
-  adapter?: Adapter;
-
-  files?: {
-    /**
-     * @example "src"
-     */
-    lib?: string;
-
-    /**
-     * @example "demo"
-     */
-    routes?: string;
-
-    /**
-     * @example "demo/_app.html"
-     */
-    template?: string;
-
-    serviceWorker?: string;
-    assets?: string;
-    hooks?: string;
-  };
 }
 
 /**
- * Creates a `svelte.config.js` object with
- * `svelte-preprocess`, `readme`, and `mdsvex` preprocessors.
+ * Creates a `svelte.config.js` object with `svelte-preprocess`, `readme`, and `mdsvex` preprocessors.
  *
- * `svelte-preprocess` be installed as development dependency.
+ * `svelte-preprocess` should be installed as development dependency.
  */
-export const createConfig: (config: CreateConfigOptions) => Promise<SvelteKitConfig> = async (
-  config
-) => {
-  const vite =
-    typeof config?.kit?.vite === "function"
-      ? ((await config.kit.vite()) as ViteConfig)
-      : config?.kit?.vite;
-  const alias: AliasOptions = {};
-  const files = config?.files ?? config?.kit?.files;
-
-  if (config?.name) {
-    alias[config?.name] = path.resolve(files?.lib ?? "src/lib");
-  }
-
+export const createConfig: (config: CreateConfigOptions) => SvelteKitConfig = (config) => {
   return {
     extensions: [".svelte", ".md"],
     preprocess: [
@@ -91,34 +37,63 @@ export const createConfig: (config: CreateConfigOptions) => Promise<SvelteKitCon
       }),
     ],
     kit: {
-      adapter: config?.adapter,
-      files: config?.files,
-      prerender: {
-        default: true,
-      },
+      prerender: { default: true },
       ...config?.kit,
-      vite: {
-        ...vite,
-        plugins: [...(vite?.plugins ?? []), pluginReadme()],
-        resolve: {
-          ...vite?.resolve,
-          alias: {
-            ...alias,
-            ...vite?.resolve?.alias,
-          },
-        },
-        server: {
-          ...vite?.server,
-          watch: {
-            ignored: ["!README.md"],
-            ...vite?.server?.watch,
-          },
-          fs: {
-            allow: [".."],
-            ...vite?.server?.fs,
-          },
-        },
+    },
+  };
+};
+
+interface CreateViteConfigOptions extends ReturnType<typeof createConfig>, UserConfig {
+  /**
+   * Specify the package name.
+   *
+   * The default resolution path is assumed to be `src/lib`.
+   * Override it using `kit.files.lib`.
+   * @example "package-name"
+   */
+  name?: string;
+}
+
+export const createViteConfig = (
+  config: ReturnType<typeof createConfig>,
+  viteConfig: CreateViteConfigOptions
+): UserConfig => {
+  const TEST = process.env.VITEST;
+
+  const alias: AliasOptions = {};
+  const files = config?.kit?.files;
+
+  // TODO: infer package name from package.json#name or tsconfig.json#compilerOptions.paths
+  if (viteConfig?.name) {
+    alias[viteConfig?.name] = path.resolve(files?.lib ?? "src/lib");
+  }
+
+  return {
+    plugins: TEST ? [svelte({ hot: false })] : [...(viteConfig?.plugins ?? []), pluginReadme()],
+    resolve: {
+      ...viteConfig?.resolve,
+      alias: {
+        ...alias,
+        ...viteConfig?.resolve?.alias,
       },
+    },
+    server: {
+      ...viteConfig?.server,
+      watch: {
+        ignored: ["!README.md"],
+        ...viteConfig?.server?.watch,
+      },
+      fs: {
+        allow: [".."],
+        ...viteConfig?.server?.fs,
+      },
+    },
+
+    // TODO: type test options used by vitest.config.js
+    // @ts-ignore
+    test: {
+      globals: true,
+      environment: "jsdom",
     },
   };
 };

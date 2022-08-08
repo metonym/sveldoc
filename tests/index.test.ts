@@ -6,6 +6,7 @@ describe("index.ts", () => {
     expect(Object.keys(imports)).toMatchInlineSnapshot(`
       [
         "createConfig",
+        "createViteConfig",
         "readme",
         "sveldoc",
       ]

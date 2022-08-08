@@ -14,106 +14,35 @@ The easiest way to get started is to use `createConfig` to create a base `svelte
 
 ### `createConfig`
 
-Using `createConfig` requires `svelte-preprocess` to be installed.
-
-```bash
-pnpm i -D svelte-preprocess
-```
-
-**Minimal**
-
-Specify the package name for `name`.
-
-`sveldoc` will alias the name to the kit `lib` folder.
-
-By default, components are expected to be located in `src/lib`.
-
 ```js
 // svelte.config.js
 import adapter from "@sveltejs/adapter-static";
 import { createConfig } from "sveldoc";
 
 export default createConfig({
-  name: "svelte-focus-key",
-  adapter: adapter(),
-});
-```
-
-**Custom file structure**
-
-```js
-// svelte.config.js
-import adapter from "@sveltejs/adapter-static";
-import { createConfig } from "sveldoc";
-
-export default createConfig({
-  name: "svelte-focus-key",
-  adapter: adapter(),
-  files: {
-    lib: "src",
-    routes: "demo",
-    template: "demo/_app.html",
+  kit: {
+    adapter: adapter(),
+    files: {
+      lib: "src",
+      routes: "demo",
+      template: "demo/_app.html",
+    },
   },
 });
 ```
 
-**`createConfig` signature**
+### `createViteConfig`
 
-`createConfig` extends the base SvelteKit `Config` interface.
+```js
+// vite.config.js
+import { sveltekit } from "@sveltejs/kit/vite";
+import { createViteConfig } from "sveldoc";
+import svelteConfig from "./svelte.config.js";
 
-```ts
-interface CreateConfigOptions extends SvelteKitConfig {
-  /**
-   * Specify the package name.
-   *
-   * The default resolution path is assumed to be `src/lib`;
-   * override it using `files.lib` or `kit.files.lib`.
-   * @example "package-name"
-   */
-  name?: string;
-
-  /**
-   * Options passed to `mdsvex`.
-   * @default
-   * {
-   *   extensions: [".md"],
-   *   smartypants: false
-   * }
-   */
-  mdsvexOptions?: MdsvexOptions;
-
-  /**
-   * Specify the SvelteKit adapter.
-   * @example
-   * import adapter from "@sveltejs/adapter-static";
-   *
-   * createConfig({
-   *   adapter: adapter()
-   * });
-   */
-  adapter?: Adapter;
-
-  files?: {
-    /**
-     * @example "src"
-     */
-    lib?: string;
-
-    /**
-     * @example "demo"
-     */
-    routes?: string;
-
-    /**
-     * @example "demo/_app.html"
-     */
-    template?: string;
-
-    serviceWorker?: string;
-    assets?: string;
-    hooks?: string;
-  };
-}
+export default createViteConfig(svelteConfig, {
+  name: "<package-name>",
+  plugins: [sveltekit()],
+});
 ```
 
 ### TypeScript
