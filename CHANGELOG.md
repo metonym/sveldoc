@@ -19,7 +19,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - append line break if now new line
 
-
 ## [0.5.0](https://github.com/metonym/sveldoc/releases/tag/v0.5.0) - 2022-06-24
 
 **Breaking Changes**
