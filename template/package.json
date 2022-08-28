@@ -1,0 +1,28 @@
+{
+  "name": "svelte-component",
+  "version": "0.1.0",
+  "license": "MIT",
+  "description": "<description>",
+  "author": "Eric Liu (https://github.com/metonym)",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "prepack": "TODO",
+    "test": "vitest"
+  },
+  "devDependencies": {
+    "vitest": "^0.22.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/metonym/svelte-component"
+  },
+  "homepage": "https://github.com/metonym/svelte-component",
+  "bugs": "https://github.com/metonym/svelte-component/issues",
+  "keywords": [
+    "svelte",
+    "svelte component"
+  ]
+}

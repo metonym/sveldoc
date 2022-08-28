@@ -26,11 +26,16 @@ describe("preprocessReadme", () => {
   });
 
   test("snapshots", async () => {
-    const input_files = readdirSync(SNAPSHOTS).filter((filename) => RE_INPUT.test(filename));
+    const input_files = readdirSync(SNAPSHOTS).filter((filename) =>
+      RE_INPUT.test(filename)
+    );
 
     for await (const filename of input_files) {
       const input_path = path.join(SNAPSHOTS, filename);
-      const output_path = path.join(SNAPSHOTS, filename.replace(RE_INPUT, "output.md"));
+      const output_path = path.join(
+        SNAPSHOTS,
+        filename.replace(RE_INPUT, "output.md")
+      );
       const result = preprocessReadme().markup({
         content: await readFile(input_path, "utf-8"),
         filename: "README.md",

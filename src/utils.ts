@@ -1,4 +1,5 @@
-import { parse } from "svelte/compiler";
+import { typescript } from "svelte-preprocess";
+import { parse, preprocess } from "svelte/compiler";
 
 interface ParseComponentOptions {
   source: string;
@@ -11,7 +12,20 @@ interface ParsedComponent {
   module: string[];
 }
 
-export const parseComponent = ({ source, filename }: ParseComponentOptions) => {
+export const parseComponent = async ({
+  source: raw_source,
+  filename,
+}: ParseComponentOptions) => {
+  let source = raw_source;
+  let plain = source;
+  
+  // TODO: find a better way to determine if file uses TS
+  let has_typescript = /lang="ts"/.test(source);
+  if (has_typescript) {
+    const result = await preprocess(source, [typescript()], { filename });
+    source = result.code;
+    plain = result.code.replace(/ lang="ts"/, "");
+  }
   const { html, css, instance, module } = parse(source, { filename });
   const fragment = (start: number, end: number) => source.slice(start, end);
   const split = (fragment: string) =>
@@ -34,11 +48,16 @@ export const parseComponent = ({ source, filename }: ParseComponentOptions) => {
   }
 
   if (instance) {
-    parsed.html = parsed.html.replace(source.slice(instance.start, instance.end), "");
-    parsed.script = split(fragment(instance.content.start, instance.content.end));
+    parsed.html = parsed.html.replace(
+      source.slice(instance.start, instance.end),
+      ""
+    );
+    parsed.script = split(
+      fragment(instance.content.start, instance.content.end)
+    );
   }
 
-  return parsed;
+  return { parsed, raw_source, plain, has_typescript };
 };
 
 export const match: Record<string, (str: string) => boolean> = {

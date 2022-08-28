@@ -15,7 +15,11 @@ interface TransformReadmeOptions {
   noEval?: boolean;
 }
 
-export const transformReadme = ({ source, filename, noEval }: TransformReadmeOptions) => {
+export const transformReadme = ({
+  source,
+  filename,
+  noEval,
+}: TransformReadmeOptions) => {
   let script_module_unique_lines = new Set();
   let script_unique_lines = new Set();
   let component_paths = new Set<string>();
@@ -27,7 +31,10 @@ export const transformReadme = ({ source, filename, noEval }: TransformReadmeOpt
         let current_index = index;
         let next_line = lines[current_index + 1];
 
-        while (current_index < lines.length - 1 && !match.exampleEnd(next_line)) {
+        while (
+          current_index < lines.length - 1 &&
+          !match.exampleEnd(next_line)
+        ) {
           current_index++;
           next_line = lines[current_index];
 
@@ -47,7 +54,11 @@ export const transformReadme = ({ source, filename, noEval }: TransformReadmeOpt
         }
 
         if (!existsSync(path_component)) {
-          console.warn(diagnostic, "File does not exist:", `"${path_component}"`);
+          console.warn(
+            diagnostic,
+            "File does not exist:",
+            `"${path_component}"`
+          );
           return line;
         }
 

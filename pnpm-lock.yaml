@@ -5,7 +5,9 @@ specifiers:
   '@sveltejs/vite-plugin-svelte': ^1.0.1
   '@testing-library/svelte': ^3.1.3
   '@testing-library/user-event': ^14.4.2
+  '@types/marked': ^4.0.6
   jsdom: ^20.0.0
+  marked: ^4.0.19
   mdsvex: ^0.10.6
   prettier: ^2.7.1
   svelte: ^3.49.0
@@ -21,6 +23,7 @@ dependencies:
   '@testing-library/svelte': 3.1.3_svelte@3.49.0
   '@testing-library/user-event': 14.4.2
   jsdom: 20.0.0
+  marked: 4.0.19
   mdsvex: 0.10.6_svelte@3.49.0
   svelte: 3.49.0
   svelte-preprocess: 4.10.7_uslzfc62di2n2otc2tvfklnwji
@@ -30,6 +33,7 @@ dependencies:
   vitest: 0.21.0_jsdom@20.0.0
 
 devDependencies:
+  '@types/marked': 4.0.6
   prettier: 2.7.1
 
 packages:
@@ -171,6 +175,10 @@ packages:
   /@types/chai/4.3.2:
     resolution: {integrity: sha512-TNeRJV5O1L0s7NM4Xg9q8HPbLnyAMQ9twPMul53hWRld//NnjV/VSw7InBCNrPJyWBPhyoSLlzR2mR9Fq5nJTg==}
     dev: false
+
+  /@types/marked/4.0.6:
+    resolution: {integrity: sha512-ITAVUzsnVbhy5afxhs4PPPbrv2hKVEDH5BhhaQNQlVG0UNu+9A18XSdYr53nBdHZ0ADEQLl+ciOjXbs7eHdiQQ==}
+    dev: true
 
   /@types/node/18.6.4:
     resolution: {integrity: sha512-I4BD3L+6AWiUobfxZ49DlU43gtI+FTHSv9pE2Zekg6KjMpre4ByusaljW3vYSLJrvQ1ck1hUaeVu8HVlY3vzHg==}
@@ -980,6 +988,12 @@ packages:
     engines: {node: '>=12'}
     dependencies:
       sourcemap-codec: 1.4.8
+    dev: false
+
+  /marked/4.0.19:
+    resolution: {integrity: sha512-rgQF/OxOiLcvgUAj1Q1tAf4Bgxn5h5JZTp04Fx4XUkVhs7B+7YA9JEWJhJpoO8eJt8MkZMwqLCNeNqj1bCREZQ==}
+    engines: {node: '>= 12'}
+    hasBin: true
     dev: false
 
   /mdsvex/0.10.6_svelte@3.49.0:

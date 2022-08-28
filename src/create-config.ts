@@ -24,7 +24,9 @@ interface CreateConfigOptions extends SvelteKitConfig {
  *
  * `svelte-preprocess` should be installed as development dependency.
  */
-export const createConfig: (config: CreateConfigOptions) => SvelteKitConfig = (config) => {
+export const createConfig: (config: CreateConfigOptions) => SvelteKitConfig = (
+  config
+) => {
   return {
     extensions: [".svelte", ".md"],
     preprocess: [
@@ -43,7 +45,9 @@ export const createConfig: (config: CreateConfigOptions) => SvelteKitConfig = (c
   };
 };
 
-interface CreateViteConfigOptions extends ReturnType<typeof createConfig>, UserConfig {
+interface CreateViteConfigOptions
+  extends ReturnType<typeof createConfig>,
+    UserConfig {
   /**
    * Specify the package name.
    *
@@ -69,7 +73,9 @@ export const createViteConfig = (
   }
 
   return {
-    plugins: TEST ? [svelte({ hot: false })] : [...(viteConfig?.plugins ?? []), pluginReadme()],
+    plugins: TEST
+      ? [svelte({ hot: false })]
+      : [...(viteConfig?.plugins ?? []), pluginReadme()],
     resolve: {
       ...viteConfig?.resolve,
       alias: {
