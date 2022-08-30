@@ -1,7 +1,7 @@
 import { test, expect, describe, afterEach } from "vitest";
 import userEvent from "@testing-library/user-event";
 import type { SvelteComponent } from "svelte";
-import Basic from "../examples/Basic.svelte";
+import Basic from "@examples/Basic.svelte";
 
 describe("Counter", () => {
   let instance: null | SvelteComponent = null;

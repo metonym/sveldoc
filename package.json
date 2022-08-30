@@ -2,33 +2,32 @@
   "name": "sveldoc",
   "version": "0.7.0",
   "license": "MIT",
-  "description": "Readme-driven Development for SvelteKit",
+  "description": "Readme-driven Development for building Svelte components",
   "author": "Eric Liu (https://github.com/metonym)",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "scripts": {
-    "test": "vitest",
-    "format": "prettier --ignore-path \".gitignore\" --write \"./**/*.{md,ts}\"",
+    "test": "vitest -r tests",
+    "format": "prettier --ignore-path .gitignore --write .",
     "prepack": "tsc"
   },
   "dependencies": {
-    "@sveltejs/kit": "^1.0.0-next.405",
     "@sveltejs/vite-plugin-svelte": "^1.0.1",
-    "@testing-library/svelte": "^3.1.3",
-    "@testing-library/user-event": "^14.4.2",
-    "jsdom": "^20.0.0",
     "marked": "^4.0.19",
-    "mdsvex": "^0.10.6",
+    "prettier": "^2.7.1",
+    "prettier-plugin-svelte": "^2.7.0",
+    "prism-svelte": "^0.4.7",
+    "prismjs": "^1.29.0",
     "svelte": "^3.49.0",
     "svelte-preprocess": "^4.10.7",
-    "svelte2tsx": "^0.5.13",
-    "typescript": "^4.7.4",
-    "vite": "^3.0.4",
-    "vitest": "^0.21.0"
+    "typescript": "^4.7.4"
   },
   "devDependencies": {
     "@types/marked": "^4.0.6",
-    "prettier": "^2.7.1"
+    "@types/prettier": "^2.7.0",
+    "@types/prismjs": "^1.26.0",
+    "vite": "^3.0.9",
+    "vitest": "^0.22.1"
   },
   "repository": {
     "type": "git",

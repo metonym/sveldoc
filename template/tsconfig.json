@@ -10,9 +10,9 @@
     "strict": true,
     "baseUrl": ".",
     "paths": {
-      "svelte-component": ["src"]
-    },
-    "types": ["svelte"]
+      "svelte-component": ["src"],
+      "@examples": ["examples"]
+    }
   },
   "include": ["src", "examples", "tests"]
 }

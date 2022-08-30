@@ -17,15 +17,7 @@ export const parseComponent = async ({
   filename,
 }: ParseComponentOptions) => {
   let source = raw_source;
-  let plain = source;
-  
-  // TODO: find a better way to determine if file uses TS
-  let has_typescript = /lang="ts"/.test(source);
-  if (has_typescript) {
-    const result = await preprocess(source, [typescript()], { filename });
-    source = result.code;
-    plain = result.code.replace(/ lang="ts"/, "");
-  }
+
   const { html, css, instance, module } = parse(source, { filename });
   const fragment = (start: number, end: number) => source.slice(start, end);
   const split = (fragment: string) =>
@@ -57,14 +49,7 @@ export const parseComponent = async ({
     );
   }
 
-  return { parsed, raw_source, plain, has_typescript };
+  return {
+    parsed,
+  };
 };
-
-export const match: Record<string, (str: string) => boolean> = {
-  readmeFile: (filename) => /readme.md$/i.test(filename),
-  exampleStart: (line) => /^<!-- example-start/.test(line),
-  exampleEnd: (line) => /^<!-- example-end -->/.test(line),
-};
-
-export const extractComponentPath = (line: string) =>
-  line.split(" ").find((item) => !/^(<!--|-->|example-start)/.test(item));
