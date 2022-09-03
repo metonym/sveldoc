@@ -40,7 +40,7 @@ export const createViteConfig: CreateViteConfig = (options) => {
       }),
       svelte({
         extensions: [".svelte", ".md"],
-        preprocess: [typescript(), preprocessReadme()],
+        preprocess: [typescript(), preprocessReadme({ base: options?.base })],
       }),
       pluginReadme(),
     ],
