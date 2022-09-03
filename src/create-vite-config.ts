@@ -24,9 +24,11 @@ type CreateViteConfig = (options?: CreateViteConfigOptions) => UserConfig & {
 
 export const createViteConfig: CreateViteConfig = (options) => {
   const resetStyles = options?.resetStyles === true;
+  const base = options?.base ?? "./";
 
   return {
     ...options,
+    base,
     resolve: {
       ...options?.resolve,
       alias: {
@@ -40,12 +42,7 @@ export const createViteConfig: CreateViteConfig = (options) => {
       }),
       svelte({
         extensions: [".svelte", ".md"],
-        preprocess: [
-          typescript(),
-          preprocessReadme({
-            base: options?.base ?? ".",
-          }),
-        ],
+        preprocess: [typescript(), preprocessReadme({ base })],
       }),
       pluginReadme(),
     ],

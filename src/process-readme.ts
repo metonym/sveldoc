@@ -50,7 +50,7 @@ interface ProcessReadmeOptions {
 
 export const processReadme = async (options: ProcessReadmeOptions) => {
   const { source, filename, noEval } = options;
-  const base_url = options?.base ?? ".";
+  const base_url = options?.base ?? "./";
 
   let cleaned = "";
   let open = false;
@@ -130,9 +130,7 @@ export const processReadme = async (options: ProcessReadmeOptions) => {
           line_modified += `
             <iframe
               title="${name} example"
-              src="${base_url}${
-            base_url.endsWith("/") ? "" : "/"
-          }examples/${base}.html"
+              src="${base_url}examples/${base}.html"
               loading="lazy"
               ${
                 path_options.height
