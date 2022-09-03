@@ -1,6 +1,6 @@
 {
   "name": "sveldoc",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "license": "MIT",
   "description": "Readme-driven Development for building Svelte components",
   "author": "Eric Liu (https://github.com/metonym)",

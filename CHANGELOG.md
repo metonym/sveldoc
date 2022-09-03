@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.9.0](https://github.com/metonym/sveldoc/releases/tag/v0.9.0) - 2022-09-03
+
+**Features**
+
+- use Prettier to format `README.md` after building app
+- support base URL if specified; default to being relative
+
+**Fixes**
+
+- correctly determine main `index.html` to apply metadata
+
 ## [0.8.0](https://github.com/metonym/sveldoc/releases/tag/v0.8.0) - 2022-09-03
 
 **Breaking Changes**
