@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import prettier from "prettier";
 import type { Plugin } from "vite";
 import { fdir } from "fdir";
 import type { PathsOutput } from "fdir";
@@ -53,7 +54,10 @@ export const pluginReadme = (): Plugin => {
         noEval: true,
       });
 
-      fs.writeFileSync(filename, transformed.code);
+      fs.writeFileSync(
+        filename,
+        prettier.format(transformed.code, { parser: "markdown" })
+      );
     },
   };
 };

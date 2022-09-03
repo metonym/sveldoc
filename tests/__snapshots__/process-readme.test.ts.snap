@@ -13,7 +13,7 @@ exports[`processReadme >  1`] = `
 
             <iframe
               title=\\"Button example\\"
-              src=\\"/examples/Button.svelte.html\\"
+              src=\\"./examples/Button.svelte.html\\"
               loading=\\"lazy\\"
               
             /><pre><code>{@html \`<span class=\\"token tag\\"><span class=\\"token tag\\"><span class=\\"token punctuation\\">&lt;</span>script</span><span class=\\"token punctuation\\">></span></span><span class=\\"token script\\"><span class=\\"token language-javascript\\">
@@ -45,7 +45,7 @@ exports[`processReadme >  1`] = `
 
             <iframe
               title=\\"Heading example\\"
-              src=\\"/examples/Heading.svelte.html\\"
+              src=\\"./examples/Heading.svelte.html\\"
               loading=\\"lazy\\"
               
             /><pre><code>{@html \`<span class=\\"token tag\\"><span class=\\"token tag\\"><span class=\\"token punctuation\\">&lt;</span>script</span><span class=\\"token punctuation\\">></span></span><span class=\\"token script\\"><span class=\\"token language-javascript\\">
@@ -151,7 +151,7 @@ exports[`processReadme >  3`] = `
 
             <iframe
               title=\\"Button example\\"
-              src=\\"/examples/Button.svelte.html\\"
+              src=\\"./examples/Button.svelte.html\\"
               loading=\\"lazy\\"
               
             /><pre><code>{@html \`<span class=\\"token tag\\"><span class=\\"token tag\\"><span class=\\"token punctuation\\">&lt;</span>script</span><span class=\\"token punctuation\\">></span></span><span class=\\"token script\\"><span class=\\"token language-javascript\\">
@@ -183,7 +183,7 @@ exports[`processReadme >  3`] = `
 
             <iframe
               title=\\"Heading example\\"
-              src=\\"/examples/Heading.svelte.html\\"
+              src=\\"./examples/Heading.svelte.html\\"
               loading=\\"lazy\\"
               
             /><pre><code>{@html \`<span class=\\"token tag\\"><span class=\\"token tag\\"><span class=\\"token punctuation\\">&lt;</span>script</span><span class=\\"token punctuation\\">></span></span><span class=\\"token script\\"><span class=\\"token language-javascript\\">

@@ -1,5 +1,5 @@
 import type { Plugin } from "vite";
-import { CreateViteConfigOptions } from "./create-vite-config";
+import type { CreateViteConfigOptions } from "./create-vite-config";
 import { github_styles } from "./styles/github-markdown";
 import { sveldoc_styles } from "./styles/sveldoc";
 import { getPackageJson } from "./utils/get-package-json";

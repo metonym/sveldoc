@@ -45,10 +45,12 @@ interface ProcessReadmeOptions {
   source: string;
   filename: string;
   noEval?: boolean;
+  base?: string;
 }
 
 export const processReadme = async (options: ProcessReadmeOptions) => {
   const { source, filename, noEval } = options;
+  const base_url = options?.base ?? ".";
 
   let cleaned = "";
   let open = false;
@@ -66,10 +68,7 @@ export const processReadme = async (options: ProcessReadmeOptions) => {
     cleaned = marked.parse(cleaned);
   }
 
-  let script_module_unique_lines = new Set();
-  let script_unique_lines = new Set();
   let dependencies = new Set<string>();
-  let styles = "";
   let lines_code = "";
 
   for await (let line of cleaned.split("\n")) {
@@ -100,23 +99,18 @@ export const processReadme = async (options: ProcessReadmeOptions) => {
       }
 
       const source = fs.readFileSync(path_component, "utf-8");
-      const { html, css, script, module } = (
-        await parseComponent({ source, filename })
-      ).parsed;
+      const { html, css } = (await parseComponent({ source, filename })).parsed;
 
-      let source_modified = source;
+      let source_modified = path_options.blocks !== null ? "" : source;
 
-      if (path_options.blocks !== null) {
-        source_modified = "";
-
-        if (path_options.blocks.includes("markup")) {
+      path_options.blocks?.forEach((block) => {
+        if (block === "markup") {
           source_modified += html;
         }
-
-        if (path_options.blocks.includes("style")) {
-          source_modified += `<style>\n${css}\n</style>`;
+        if (block === "style" && css) {
+          source_modified += `<style>\n${css}\n<\/style>`;
         }
-      }
+      });
 
       const source_formatted = prettier.format(source_modified, {
         parser: "svelte",
@@ -127,10 +121,6 @@ export const processReadme = async (options: ProcessReadmeOptions) => {
         "svelte"
       );
 
-      module.forEach((line) => script_module_unique_lines.add(line));
-      script.forEach((line) => script_unique_lines.add(line));
-      styles += css;
-
       let line_modified = "\n";
 
       if (noEval) {
@@ -140,7 +130,9 @@ export const processReadme = async (options: ProcessReadmeOptions) => {
           line_modified += `
             <iframe
               title="${name} example"
-              src="/examples/${base}.html"
+              src="${base_url}${
+            base_url.endsWith("/") ? "" : "/"
+          }examples/${base}.html"
               loading="lazy"
               ${
                 path_options.height
