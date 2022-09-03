@@ -6,7 +6,7 @@ import { pluginIndex } from "./plugin-index";
 import { pluginReadme } from "./plugin-readme";
 import { preprocessReadme } from "./preprocess-readme";
 
-export interface CreateViteConfigOptions extends UserConfig {
+export interface DefineConfigOptions extends UserConfig {
   /**
    * Set to `true` to not apply default
    * GitHub Markdown styles to iframes.
@@ -15,14 +15,14 @@ export interface CreateViteConfigOptions extends UserConfig {
   resetStyles?: boolean;
 }
 
-type CreateViteConfig = (options?: CreateViteConfigOptions) => UserConfig & {
+type DefineConfig = (options?: DefineConfigOptions) => UserConfig & {
   test: {
     globals: boolean;
     environment?: string;
   };
 };
 
-export const createViteConfig: CreateViteConfig = (options) => {
+export const defineConfig: DefineConfig = (options) => {
   const resetStyles = options?.resetStyles === true;
   const base = options?.base ?? "./";
 
