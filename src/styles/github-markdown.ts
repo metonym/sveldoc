@@ -217,7 +217,8 @@ export const github_styles = (options?: GitHubStylesOptions) => `
   border: 0;
 }
 
-.markdown-body input {
+.markdown-body input,
+.markdown-body textinput {
   font: inherit;
   margin: 0;
   overflow: visible;
@@ -267,7 +268,7 @@ export const github_styles = (options?: GitHubStylesOptions) => `
 }
 
 .markdown-body ::-webkit-input-placeholder {
-  color: inherit;
+  color: var(--color-fg-subtle);
   opacity: 0.54;
 }
 

@@ -1,10 +1,10 @@
 import type { SveltePreprocessor } from "svelte/types/compiler/preprocess";
-import type { CreateViteConfigOptions } from "./create-vite-config";
+import type { DefineConfigOptions } from "./define-config";
 import { processReadme } from "./process-readme";
 import { match } from "./utils/match";
 
 interface PreprocessReadmeOptions
-  extends Pick<CreateViteConfigOptions, "base"> {}
+  extends Pick<DefineConfigOptions, "base" | "branch"> {}
 
 export const preprocessReadme: SveltePreprocessor<
   "markup",
@@ -13,11 +13,7 @@ export const preprocessReadme: SveltePreprocessor<
   return {
     markup: ({ content: source, filename }) => {
       if (!filename || !match.readmeFile(filename)) return;
-      return processReadme({
-        source,
-        filename,
-        base: options?.base!,
-      });
+      return processReadme({ source, filename, ...options });
     },
   };
 };

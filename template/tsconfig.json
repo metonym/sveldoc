@@ -1,14 +1,14 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "importsNotUsedAsValues": "error",
     "isolatedModules": true,
-    "preserveValueImports": true,
     "lib": ["esnext", "DOM", "DOM.Iterable"],
-    "moduleResolution": "node",
     "module": "esnext",
-    "target": "esnext",
+    "moduleResolution": "node",
+    "preserveValueImports": true,
     "strict": true,
-    "baseUrl": ".",
+    "target": "esnext",
     "paths": {
       "svelte-component": ["src"],
       "@examples": ["examples"]

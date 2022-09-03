@@ -6,25 +6,39 @@ import { pluginIndex } from "./plugin-index";
 import { pluginReadme } from "./plugin-readme";
 import { preprocessReadme } from "./preprocess-readme";
 
-export interface CreateViteConfigOptions extends UserConfig {
+export interface DefineConfigOptions extends UserConfig {
+  /**
+   * Specify additional CSS styles to be
+   * injected into the main index file.
+   */
+  styles?: string;
+
   /**
    * Set to `true` to not apply default
    * GitHub Markdown styles to iframes.
    * @default false
    */
   resetStyles?: boolean;
+
+  /**
+   * Specify the default branch used to
+   * permalink relative URLs in the README.
+   * @default "master"
+   */
+  branch?: string;
 }
 
-type CreateViteConfig = (options?: CreateViteConfigOptions) => UserConfig & {
+type DefineConfig = (options?: DefineConfigOptions) => UserConfig & {
   test: {
     globals: boolean;
     environment?: string;
   };
 };
 
-export const createViteConfig: CreateViteConfig = (options) => {
+export const defineConfig: DefineConfig = (options) => {
   const resetStyles = options?.resetStyles === true;
-  const base = options?.base ?? "./";
+  const base = options?.base;
+  const branch = options?.branch;
 
   return {
     ...options,
@@ -42,7 +56,7 @@ export const createViteConfig: CreateViteConfig = (options) => {
       }),
       svelte({
         extensions: [".svelte", ".md"],
-        preprocess: [typescript(), preprocessReadme({ base })],
+        preprocess: [typescript(), preprocessReadme({ base, branch })],
       }),
       pluginReadme(),
     ],

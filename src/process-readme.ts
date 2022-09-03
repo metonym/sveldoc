@@ -14,43 +14,43 @@ import { getPackageJson } from "./utils/get-package-json";
 
 const package_json = getPackageJson();
 
-marked.use({
-  highlight: (code, lang) => {
-    let highlighted = code;
-    try {
-      highlighted = Prism.highlight(highlighted, Prism.languages[lang], lang);
-    } catch (e) {
-    } finally {
-      return highlighted;
-    }
-  },
-  walkTokens: (token: any) => {
-    if (
-      token.type === "link" &&
-      /^\.\//.test(token.href) &&
-      package_json?.repository?.url
-    ) {
-      token.href = path.join(
-        package_json.repository.url,
-        "tree",
-        // TODO: configure default branch name
-        "master",
-        token.href
-      );
-    }
-  },
-});
-
 interface ProcessReadmeOptions {
   source: string;
   filename: string;
   noEval?: boolean;
   base?: string;
+  branch?: string;
 }
 
 export const processReadme = async (options: ProcessReadmeOptions) => {
-  const { source, filename, noEval } = options;
+  const { source, filename, noEval, branch = "master" } = options;
   const base_url = options?.base ?? "./";
+
+  marked.use({
+    highlight: (code, lang) => {
+      let highlighted = code;
+      try {
+        highlighted = Prism.highlight(highlighted, Prism.languages[lang], lang);
+      } catch (e) {
+      } finally {
+        return highlighted;
+      }
+    },
+    walkTokens: (token: any) => {
+      if (
+        token.type === "link" &&
+        /^\.\//.test(token.href) &&
+        package_json?.repository?.url
+      ) {
+        token.href = path.join(
+          package_json.repository.url,
+          "tree",
+          branch,
+          token.href
+        );
+      }
+    },
+  });
 
   let cleaned = "";
   let open = false;
