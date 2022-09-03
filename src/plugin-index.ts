@@ -15,7 +15,7 @@ export const pluginIndex = (options: PluginIndexOptions): Plugin => {
     transformIndexHtml(html, ctx) {
       if (!/^<script/.test(html.trim())) return;
 
-      const is_main_index = ctx.originalUrl === "/";
+      const is_main_index = ctx.filename.endsWith("index.html");
       const styles = options.resetStyles
         ? ""
         : github_styles({ is_iframe: !is_main_index }) + sveldoc_styles;
