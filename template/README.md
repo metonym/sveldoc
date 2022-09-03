@@ -35,11 +35,6 @@ www.example.com
 
 This is an example where the code is not evaluated:
 
-```
-<!-- example-start examples/Basic.svelte no-eval -->
-<!-- example-end -->
-```
-
 <!-- example-start examples/Basic.svelte no-eval -->
 <!-- example-end -->
 
