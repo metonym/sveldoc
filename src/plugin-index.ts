@@ -3,6 +3,7 @@ import { CreateViteConfigOptions } from "./create-vite-config";
 import { github_styles } from "./styles/github-markdown";
 import { sveldoc_styles } from "./styles/sveldoc";
 import { getPackageJson } from "./utils/get-package-json";
+import { match } from "./utils/match";
 
 interface PluginIndexOptions
   extends Required<Pick<CreateViteConfigOptions, "resetStyles">> {}
@@ -13,9 +14,7 @@ export const pluginIndex = (options: PluginIndexOptions): Plugin => {
   return {
     name: "vite:index",
     transformIndexHtml(html, ctx) {
-      if (!/^<script/.test(html.trim())) return;
-
-      const is_main_index = ctx.originalUrl === "/";
+      const is_main_index = match.indexFile(ctx.filename);
       const styles = options.resetStyles
         ? ""
         : github_styles({ is_iframe: !is_main_index }) + sveldoc_styles;
