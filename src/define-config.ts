@@ -36,6 +36,7 @@ type DefineConfig = (options?: DefineConfigOptions) => UserConfig & {
 };
 
 export const defineConfig: DefineConfig = (options) => {
+  const styles = options?.styles ?? "";
   const resetStyles = options?.resetStyles === true;
   const base = options?.base;
   const branch = options?.branch;
@@ -52,6 +53,7 @@ export const defineConfig: DefineConfig = (options) => {
     },
     plugins: [
       pluginIndex({
+        styles,
         resetStyles,
       }),
       svelte({
