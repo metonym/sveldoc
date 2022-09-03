@@ -13,6 +13,13 @@ export interface DefineConfigOptions extends UserConfig {
    * @default false
    */
   resetStyles?: boolean;
+
+  /**
+   * Specify the default branch used to
+   * permalink relative URLs in the README.
+   * @default "master"
+   */
+  branch?: string;
 }
 
 type DefineConfig = (options?: DefineConfigOptions) => UserConfig & {
@@ -24,7 +31,8 @@ type DefineConfig = (options?: DefineConfigOptions) => UserConfig & {
 
 export const defineConfig: DefineConfig = (options) => {
   const resetStyles = options?.resetStyles === true;
-  const base = options?.base ?? "./";
+  const base = options?.base;
+  const branch = options?.branch;
 
   return {
     ...options,
@@ -42,7 +50,7 @@ export const defineConfig: DefineConfig = (options) => {
       }),
       svelte({
         extensions: [".svelte", ".md"],
-        preprocess: [typescript(), preprocessReadme({ base })],
+        preprocess: [typescript(), preprocessReadme({ base, branch })],
       }),
       pluginReadme(),
     ],
