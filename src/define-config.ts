@@ -8,6 +8,12 @@ import { preprocessReadme } from "./preprocess-readme";
 
 export interface DefineConfigOptions extends UserConfig {
   /**
+   * Specify additional CSS styles to be
+   * injected into the main index file.
+   */
+  styles?: string;
+
+  /**
    * Set to `true` to not apply default
    * GitHub Markdown styles to iframes.
    * @default false

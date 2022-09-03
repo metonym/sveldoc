@@ -6,7 +6,7 @@ import { getPackageJson } from "./utils/get-package-json";
 import { match } from "./utils/match";
 
 interface PluginIndexOptions
-  extends Required<Pick<DefineConfigOptions, "resetStyles">> {}
+  extends Required<Pick<DefineConfigOptions, "styles" | "resetStyles">> {}
 
 export const pluginIndex = (options: PluginIndexOptions): Plugin => {
   const package_json = getPackageJson();
@@ -33,7 +33,7 @@ export const pluginIndex = (options: PluginIndexOptions): Plugin => {
               <meta charset="utf-8" />
               <meta name="viewport" content="width=device-width, initial-scale=1" />
               ${metadata}
-              <style>${styles}</style>
+              <style>${styles}${(is_main_index && options.styles) ?? ""}</style>
             </head>
             <body ${options.resetStyles ? "" : 'class="markdown-body"'}>
               ${html}
