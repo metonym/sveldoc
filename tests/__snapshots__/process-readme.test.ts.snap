@@ -1,0 +1,213 @@
+// Vitest Snapshot v1
+
+exports[`processReadme >  1`] = `
+"<h1 id=\\"heading\\">heading</h1>
+<!-- example-start -->
+<!-- example-end -->
+
+<!-- example-start invalid.file -->
+<!-- example-end -->
+
+<!-- example-start ./tests/__fixtures__/Button.svelte -->
+
+
+            <iframe
+              title=\\"Button example\\"
+              src=\\"/examples/Button.svelte.html\\"
+              loading=\\"lazy\\"
+              
+            /><pre><code>{@html \`<span class=\\"token tag\\"><span class=\\"token tag\\"><span class=\\"token punctuation\\">&lt;</span>script</span><span class=\\"token punctuation\\">></span></span><span class=\\"token script\\"><span class=\\"token language-javascript\\">
+  <span class=\\"token keyword\\">import</span> ComponentDefault <span class=\\"token keyword\\">from</span> <span class=\\"token string\\">\\"./component\\"</span><span class=\\"token punctuation\\">;</span>
+  <span class=\\"token keyword\\">import</span> <span class=\\"token punctuation\\">{</span> ComponentNamed <span class=\\"token punctuation\\">}</span> <span class=\\"token keyword\\">from</span> <span class=\\"token string\\">\\"./component\\"</span><span class=\\"token punctuation\\">;</span>
+  <span class=\\"token keyword\\">import</span> <span class=\\"token punctuation\\">{</span> Component <span class=\\"token keyword\\">as</span> Alias <span class=\\"token punctuation\\">}</span> <span class=\\"token keyword\\">from</span> <span class=\\"token string\\">\\"./component\\"</span><span class=\\"token punctuation\\">;</span>
+
+  <span class=\\"token keyword\\">export</span> <span class=\\"token keyword\\">let</span> type <span class=\\"token operator\\">=</span> <span class=\\"token string\\">\\"button\\"</span><span class=\\"token punctuation\\">;</span>
+</span></span><span class=\\"token tag\\"><span class=\\"token tag\\"><span class=\\"token punctuation\\">&lt;/</span>script</span><span class=\\"token punctuation\\">></span></span>
+
+<span class=\\"token tag\\"><span class=\\"token tag\\"><span class=\\"token punctuation\\">&lt;</span>button</span> <span class=\\"token language-javascript\\"><span class=\\"token punctuation\\">{</span>type<span class=\\"token punctuation\\">}</span></span><span class=\\"token punctuation\\">></span></span>
+  <span class=\\"token tag\\"><span class=\\"token tag\\"><span class=\\"token punctuation\\">&lt;</span>slot</span> <span class=\\"token punctuation\\">/></span></span>
+<span class=\\"token tag\\"><span class=\\"token tag\\"><span class=\\"token punctuation\\">&lt;/</span>button</span><span class=\\"token punctuation\\">></span></span>
+
+<span class=\\"token tag\\"><span class=\\"token tag\\"><span class=\\"token punctuation\\">&lt;</span>style</span><span class=\\"token punctuation\\">></span></span><span class=\\"token style\\"><span class=\\"token language-css\\">
+  <span class=\\"token selector\\">button</span> <span class=\\"token punctuation\\">{</span>
+    <span class=\\"token property\\">color</span><span class=\\"token punctuation\\">:</span> red<span class=\\"token punctuation\\">;</span>
+  <span class=\\"token punctuation\\">}</span>
+</span></span><span class=\\"token tag\\"><span class=\\"token tag\\"><span class=\\"token punctuation\\">&lt;/</span>style</span><span class=\\"token punctuation\\">></span></span>
+\`}</code></pre>
+
+
+
+<!-- example-end -->
+
+<h2 id=\\"heading-2\\">heading 2</h2>
+<!-- example-start tests/__fixtures__/Heading.svelte -->
+
+
+            <iframe
+              title=\\"Heading example\\"
+              src=\\"/examples/Heading.svelte.html\\"
+              loading=\\"lazy\\"
+              
+            /><pre><code>{@html \`<span class=\\"token tag\\"><span class=\\"token tag\\"><span class=\\"token punctuation\\">&lt;</span>script</span><span class=\\"token punctuation\\">></span></span><span class=\\"token script\\"><span class=\\"token language-javascript\\">
+  <span class=\\"token keyword\\">import</span> ComponentDefault <span class=\\"token keyword\\">from</span> <span class=\\"token string\\">\\"./component\\"</span><span class=\\"token punctuation\\">;</span>
+  <span class=\\"token keyword\\">import</span> <span class=\\"token punctuation\\">{</span> ComponentNamed <span class=\\"token punctuation\\">}</span> <span class=\\"token keyword\\">from</span> <span class=\\"token string\\">\\"./component\\"</span><span class=\\"token punctuation\\">;</span>
+  <span class=\\"token keyword\\">import</span> <span class=\\"token punctuation\\">{</span> Component <span class=\\"token keyword\\">as</span> Alias <span class=\\"token punctuation\\">}</span> <span class=\\"token keyword\\">from</span> <span class=\\"token string\\">\\"./component\\"</span><span class=\\"token punctuation\\">;</span>
+
+  <span class=\\"token keyword\\">export</span> <span class=\\"token keyword\\">let</span> id <span class=\\"token operator\\">=</span> <span class=\\"token keyword\\">undefined</span><span class=\\"token punctuation\\">;</span>
+</span></span><span class=\\"token tag\\"><span class=\\"token tag\\"><span class=\\"token punctuation\\">&lt;/</span>script</span><span class=\\"token punctuation\\">></span></span>
+
+<span class=\\"token tag\\"><span class=\\"token tag\\"><span class=\\"token punctuation\\">&lt;</span>h1</span> <span class=\\"token language-javascript\\"><span class=\\"token punctuation\\">{</span>id<span class=\\"token punctuation\\">}</span></span><span class=\\"token punctuation\\">></span></span>
+  <span class=\\"token tag\\"><span class=\\"token tag\\"><span class=\\"token punctuation\\">&lt;</span>slot</span> <span class=\\"token punctuation\\">/></span></span>
+<span class=\\"token tag\\"><span class=\\"token tag\\"><span class=\\"token punctuation\\">&lt;/</span>h1</span><span class=\\"token punctuation\\">></span></span>
+
+<span class=\\"token tag\\"><span class=\\"token tag\\"><span class=\\"token punctuation\\">&lt;</span>style</span><span class=\\"token punctuation\\">></span></span><span class=\\"token style\\"><span class=\\"token language-css\\">
+  <span class=\\"token selector\\">h1</span> <span class=\\"token punctuation\\">{</span>
+    <span class=\\"token property\\">font-size</span><span class=\\"token punctuation\\">:</span> 2rem<span class=\\"token punctuation\\">;</span>
+  <span class=\\"token punctuation\\">}</span>
+</span></span><span class=\\"token tag\\"><span class=\\"token tag\\"><span class=\\"token punctuation\\">&lt;/</span>style</span><span class=\\"token punctuation\\">></span></span>
+\`}</code></pre>
+
+
+
+<!-- example-end -->
+
+"
+`;
+
+exports[`processReadme >  2`] = `
+"
+# heading
+
+<!-- example-start -->
+<!-- example-end -->
+
+<!-- example-start invalid.file -->
+<!-- example-end -->
+
+<!-- example-start ./tests/__fixtures__/Button.svelte -->
+
+\`\`\`svelte
+<script>
+  import ComponentDefault from \\"./component\\";
+  import { ComponentNamed } from \\"./component\\";
+  import { Component as Alias } from \\"./component\\";
+
+  export let type = \\"button\\";
+</script>
+
+<button {type}>
+  <slot />
+</button>
+
+<style>
+  button {
+    color: red;
+  }
+</style>
+\`\`\`
+
+<!-- example-end -->
+
+## heading 2
+
+<!-- example-start tests/__fixtures__/Heading.svelte -->
+
+\`\`\`svelte
+<script>
+  import ComponentDefault from \\"./component\\";
+  import { ComponentNamed } from \\"./component\\";
+  import { Component as Alias } from \\"./component\\";
+
+  export let id = undefined;
+</script>
+
+<h1 {id}>
+  <slot />
+</h1>
+
+<style>
+  h1 {
+    font-size: 2rem;
+  }
+</style>
+\`\`\`
+
+<!-- example-end -->
+    
+
+"
+`;
+
+exports[`processReadme >  3`] = `
+"<h1 id=\\"heading\\">heading</h1>
+<!-- example-start -->
+<!-- example-end -->
+
+<!-- example-start invalid.file -->
+<!-- example-end -->
+
+<!-- example-start ./tests/__fixtures__/Button.svelte -->
+
+
+            <iframe
+              title=\\"Button example\\"
+              src=\\"/examples/Button.svelte.html\\"
+              loading=\\"lazy\\"
+              
+            /><pre><code>{@html \`<span class=\\"token tag\\"><span class=\\"token tag\\"><span class=\\"token punctuation\\">&lt;</span>script</span><span class=\\"token punctuation\\">></span></span><span class=\\"token script\\"><span class=\\"token language-javascript\\">
+  <span class=\\"token keyword\\">import</span> ComponentDefault <span class=\\"token keyword\\">from</span> <span class=\\"token string\\">\\"./component\\"</span><span class=\\"token punctuation\\">;</span>
+  <span class=\\"token keyword\\">import</span> <span class=\\"token punctuation\\">{</span> ComponentNamed <span class=\\"token punctuation\\">}</span> <span class=\\"token keyword\\">from</span> <span class=\\"token string\\">\\"./component\\"</span><span class=\\"token punctuation\\">;</span>
+  <span class=\\"token keyword\\">import</span> <span class=\\"token punctuation\\">{</span> Component <span class=\\"token keyword\\">as</span> Alias <span class=\\"token punctuation\\">}</span> <span class=\\"token keyword\\">from</span> <span class=\\"token string\\">\\"./component\\"</span><span class=\\"token punctuation\\">;</span>
+
+  <span class=\\"token keyword\\">export</span> <span class=\\"token keyword\\">let</span> type <span class=\\"token operator\\">=</span> <span class=\\"token string\\">\\"button\\"</span><span class=\\"token punctuation\\">;</span>
+</span></span><span class=\\"token tag\\"><span class=\\"token tag\\"><span class=\\"token punctuation\\">&lt;/</span>script</span><span class=\\"token punctuation\\">></span></span>
+
+<span class=\\"token tag\\"><span class=\\"token tag\\"><span class=\\"token punctuation\\">&lt;</span>button</span> <span class=\\"token language-javascript\\"><span class=\\"token punctuation\\">{</span>type<span class=\\"token punctuation\\">}</span></span><span class=\\"token punctuation\\">></span></span>
+  <span class=\\"token tag\\"><span class=\\"token tag\\"><span class=\\"token punctuation\\">&lt;</span>slot</span> <span class=\\"token punctuation\\">/></span></span>
+<span class=\\"token tag\\"><span class=\\"token tag\\"><span class=\\"token punctuation\\">&lt;/</span>button</span><span class=\\"token punctuation\\">></span></span>
+
+<span class=\\"token tag\\"><span class=\\"token tag\\"><span class=\\"token punctuation\\">&lt;</span>style</span><span class=\\"token punctuation\\">></span></span><span class=\\"token style\\"><span class=\\"token language-css\\">
+  <span class=\\"token selector\\">button</span> <span class=\\"token punctuation\\">{</span>
+    <span class=\\"token property\\">color</span><span class=\\"token punctuation\\">:</span> red<span class=\\"token punctuation\\">;</span>
+  <span class=\\"token punctuation\\">}</span>
+</span></span><span class=\\"token tag\\"><span class=\\"token tag\\"><span class=\\"token punctuation\\">&lt;/</span>style</span><span class=\\"token punctuation\\">></span></span>
+\`}</code></pre>
+
+
+
+<!-- example-end -->
+
+<h2 id=\\"heading-2\\">heading 2</h2>
+<!-- example-start tests/__fixtures__/Heading.svelte -->
+
+
+            <iframe
+              title=\\"Heading example\\"
+              src=\\"/examples/Heading.svelte.html\\"
+              loading=\\"lazy\\"
+              
+            /><pre><code>{@html \`<span class=\\"token tag\\"><span class=\\"token tag\\"><span class=\\"token punctuation\\">&lt;</span>script</span><span class=\\"token punctuation\\">></span></span><span class=\\"token script\\"><span class=\\"token language-javascript\\">
+  <span class=\\"token keyword\\">import</span> ComponentDefault <span class=\\"token keyword\\">from</span> <span class=\\"token string\\">\\"./component\\"</span><span class=\\"token punctuation\\">;</span>
+  <span class=\\"token keyword\\">import</span> <span class=\\"token punctuation\\">{</span> ComponentNamed <span class=\\"token punctuation\\">}</span> <span class=\\"token keyword\\">from</span> <span class=\\"token string\\">\\"./component\\"</span><span class=\\"token punctuation\\">;</span>
+  <span class=\\"token keyword\\">import</span> <span class=\\"token punctuation\\">{</span> Component <span class=\\"token keyword\\">as</span> Alias <span class=\\"token punctuation\\">}</span> <span class=\\"token keyword\\">from</span> <span class=\\"token string\\">\\"./component\\"</span><span class=\\"token punctuation\\">;</span>
+
+  <span class=\\"token keyword\\">export</span> <span class=\\"token keyword\\">let</span> id <span class=\\"token operator\\">=</span> <span class=\\"token keyword\\">undefined</span><span class=\\"token punctuation\\">;</span>
+</span></span><span class=\\"token tag\\"><span class=\\"token tag\\"><span class=\\"token punctuation\\">&lt;/</span>script</span><span class=\\"token punctuation\\">></span></span>
+
+<span class=\\"token tag\\"><span class=\\"token tag\\"><span class=\\"token punctuation\\">&lt;</span>h1</span> <span class=\\"token language-javascript\\"><span class=\\"token punctuation\\">{</span>id<span class=\\"token punctuation\\">}</span></span><span class=\\"token punctuation\\">></span></span>
+  <span class=\\"token tag\\"><span class=\\"token tag\\"><span class=\\"token punctuation\\">&lt;</span>slot</span> <span class=\\"token punctuation\\">/></span></span>
+<span class=\\"token tag\\"><span class=\\"token tag\\"><span class=\\"token punctuation\\">&lt;/</span>h1</span><span class=\\"token punctuation\\">></span></span>
+
+<span class=\\"token tag\\"><span class=\\"token tag\\"><span class=\\"token punctuation\\">&lt;</span>style</span><span class=\\"token punctuation\\">></span></span><span class=\\"token style\\"><span class=\\"token language-css\\">
+  <span class=\\"token selector\\">h1</span> <span class=\\"token punctuation\\">{</span>
+    <span class=\\"token property\\">font-size</span><span class=\\"token punctuation\\">:</span> 2rem<span class=\\"token punctuation\\">;</span>
+  <span class=\\"token punctuation\\">}</span>
+</span></span><span class=\\"token tag\\"><span class=\\"token tag\\"><span class=\\"token punctuation\\">&lt;/</span>style</span><span class=\\"token punctuation\\">></span></span>
+\`}</code></pre>
+
+
+
+<!-- example-end -->
+
+"
+`;

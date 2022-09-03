@@ -4,10 +4,10 @@
     "esModuleInterop": true,
     "module": "CommonJS",
     "moduleResolution": "node",
-    "outDir": "lib",
+    "outDir": "dist",
     "skipLibCheck": true,
     "strict": true,
     "target": "ES6"
   },
-  "include": ["src/*"]
+  "include": ["src/**/*"]
 }
