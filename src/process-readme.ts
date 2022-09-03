@@ -1,11 +1,13 @@
-import fs from "fs";
-import path from "path";
+import fs from "node:fs";
+import path from "node:path";
 import { marked } from "marked";
 import prettier from "prettier";
 import "prettier-plugin-svelte";
 import Prism from "prismjs";
+import "prismjs/components/prism-bash";
 import "prism-svelte";
 import { extractComponentPath } from "./utils/extract-component-path";
+import { extractComponentOptions } from "./utils/extract-component-options";
 import { match } from "./utils/match";
 import { parseComponent } from "./utils/parse-component";
 import { getPackageJson } from "./utils/get-package-json";
@@ -13,6 +15,15 @@ import { getPackageJson } from "./utils/get-package-json";
 const package_json = getPackageJson();
 
 marked.use({
+  highlight: (code, lang) => {
+    let highlighted = code;
+    try {
+      highlighted = Prism.highlight(highlighted, Prism.languages[lang], lang);
+    } catch (e) {
+    } finally {
+      return highlighted;
+    }
+  },
   walkTokens: (token: any) => {
     if (
       token.type === "link" &&
@@ -21,7 +32,9 @@ marked.use({
     ) {
       token.href = path.join(
         package_json.repository.url,
-        "tree/master",
+        "tree",
+        // TODO: configure default branch name
+        "master",
         token.href
       );
     }
@@ -49,6 +62,10 @@ export const processReadme = async (options: ProcessReadmeOptions) => {
     if (match.exampleEnd(lines[index + 1])) open = false;
   });
 
+  if (!noEval) {
+    cleaned = marked.parse(cleaned);
+  }
+
   let script_module_unique_lines = new Set();
   let script_unique_lines = new Set();
   let dependencies = new Set<string>();
@@ -56,22 +73,54 @@ export const processReadme = async (options: ProcessReadmeOptions) => {
   let lines_code = "";
 
   for await (let line of cleaned.split("\n")) {
-    lines_code += (noEval ? line : marked.parse(line)) + "\n";
+    lines_code += line + "\n";
 
     if (match.exampleStart(line)) {
       const path_component = extractComponentPath(line);
+      const path_options = extractComponentOptions(line);
 
       if (!path_component) continue;
       if (!fs.existsSync(path_component)) continue;
 
       dependencies.add(path.resolve(path_component));
 
+      // Create corresponding `.html` file for component
+      const { base, name } = path.parse(path_component);
+      const template = `
+        <script type="module">
+          import Component from "./${base}";
+        
+          new Component({ target: document.body });
+        </script>
+      `;
+      const path_html = path.resolve(path_component + ".html");
+
+      if (!fs.existsSync(path_html)) {
+        fs.writeFileSync(path_html, template);
+      }
+
       const source = fs.readFileSync(path_component, "utf-8");
       const { html, css, script, module } = (
         await parseComponent({ source, filename })
       ).parsed;
 
-      const source_formatted = prettier.format(source, { parser: "svelte" });
+      let source_modified = source;
+
+      if (path_options.blocks !== null) {
+        source_modified = "";
+
+        if (path_options.blocks.includes("markup")) {
+          source_modified += html;
+        }
+
+        if (path_options.blocks.includes("style")) {
+          source_modified += `<style>\n${css}\n</style>`;
+        }
+      }
+
+      const source_formatted = prettier.format(source_modified, {
+        parser: "svelte",
+      });
       const highlighted_code = Prism.highlight(
         source_formatted,
         Prism.languages.svelte,
@@ -87,7 +136,19 @@ export const processReadme = async (options: ProcessReadmeOptions) => {
       if (noEval) {
         line_modified += `\`\`\`svelte\n${source_formatted}\`\`\``;
       } else {
-        line_modified += `<div class="eval">\n${html}\n</div>\n`;
+        if (!path_options.no_eval) {
+          line_modified += `
+            <iframe
+              title="${name} example"
+              src="/examples/${base}.html"
+              loading="lazy"
+              ${
+                path_options.height
+                  ? `style='height: ${path_options.height}'`
+                  : ""
+              }
+            />`;
+        }
         line_modified += `<pre><code>{@html \`${highlighted_code}\`}</code></pre>\n\n`;
       }
 
@@ -95,19 +156,8 @@ export const processReadme = async (options: ProcessReadmeOptions) => {
     }
   }
 
-  let content_script_module = `
-<script context="module">
-${[...script_module_unique_lines].join("\n")}
-</script>\n`;
-  let content_script = `<script>
-${[...script_unique_lines].join("\n")}
-</script>\n`;
-  let content_style = `<style>\n${styles}\n</style>`;
-  let code_eval = content_script_module + content_script + content_style;
-  let code = noEval ? lines_code : code_eval + lines_code;
-
   return {
-    code,
+    code: lines_code,
     dependencies: [...dependencies],
   };
 };

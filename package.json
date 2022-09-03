@@ -4,21 +4,22 @@
   "license": "MIT",
   "description": "Readme-driven Development for building Svelte components",
   "author": "Eric Liu (https://github.com/metonym)",
-  "main": "./lib/index.js",
-  "types": "./lib/index.d.ts",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "test": "vitest -r tests",
     "format": "prettier --ignore-path .gitignore --write .",
     "prepack": "tsc"
   },
   "dependencies": {
-    "@sveltejs/vite-plugin-svelte": "^1.0.1",
-    "marked": "^4.0.19",
+    "@sveltejs/vite-plugin-svelte": "^1.0.4",
+    "fdir": "^5.2.0",
+    "marked": "^4.1.0",
     "prettier": "^2.7.1",
     "prettier-plugin-svelte": "^2.7.0",
     "prism-svelte": "^0.4.7",
     "prismjs": "^1.29.0",
-    "svelte": "^3.49.0",
+    "svelte": "^3.50.0",
     "svelte-preprocess": "^4.10.7",
     "typescript": "^4.7.4"
   },
@@ -46,6 +47,6 @@
     "rdd"
   ],
   "files": [
-    "lib"
+    "dist"
   ]
 }

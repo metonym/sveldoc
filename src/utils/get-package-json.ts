@@ -1,13 +1,15 @@
-import fs from "fs";
-import path from "path";
+import fs from "node:fs";
+import path from "node:path";
 
-interface PackageJson {
+interface PackageJsonSchema {
+  name?: string;
+  description?: string;
   repository?: {
     url?: string;
   };
 }
 
-export const getPackageJson = (): PackageJson => {
+export const getPackageJson = (): PackageJsonSchema => {
   let package_json = {};
 
   try {

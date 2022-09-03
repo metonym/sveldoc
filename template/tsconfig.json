@@ -14,5 +14,5 @@
       "@examples": ["examples"]
     }
   },
-  "include": ["src", "examples", "tests"]
+  "include": ["src/**/*", "examples/**/*", "tests/**/*"]
 }

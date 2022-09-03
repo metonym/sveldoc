@@ -1,31 +1,7 @@
 // Vitest Snapshot v1
 
 exports[`processReadme >  1`] = `
-"
-<script context=\\"module\\">
-
-</script>
-<script>
-import ComponentDefault from \\"./component\\";
-import { ComponentNamed } from \\"./component\\";
-import { Component as Alias } from \\"./component\\";
-export let type = \\"button\\";
-export let id = undefined;
-</script>
-<style>
-
-  button {
-    color: red;
-  }
-
-  h1 {
-    font-size: 2rem;
-  }
-
-</style>
-<h1 id=\\"heading\\">heading</h1>
-
-
+"<h1 id=\\"heading\\">heading</h1>
 <!-- example-start -->
 <!-- example-end -->
 
@@ -34,12 +10,13 @@ export let id = undefined;
 
 <!-- example-start ./tests/__fixtures__/Button.svelte -->
 
-<div class=\\"eval\\">
-<button {type}>
-  <slot />
-</button>
-</div>
-<pre><code>{@html \`<span class=\\"token tag\\"><span class=\\"token tag\\"><span class=\\"token punctuation\\">&lt;</span>script</span><span class=\\"token punctuation\\">></span></span><span class=\\"token script\\"><span class=\\"token language-javascript\\">
+
+            <iframe
+              title=\\"Button example\\"
+              src=\\"/examples/Button.svelte.html\\"
+              loading=\\"lazy\\"
+              
+            /><pre><code>{@html \`<span class=\\"token tag\\"><span class=\\"token tag\\"><span class=\\"token punctuation\\">&lt;</span>script</span><span class=\\"token punctuation\\">></span></span><span class=\\"token script\\"><span class=\\"token language-javascript\\">
   <span class=\\"token keyword\\">import</span> ComponentDefault <span class=\\"token keyword\\">from</span> <span class=\\"token string\\">\\"./component\\"</span><span class=\\"token punctuation\\">;</span>
   <span class=\\"token keyword\\">import</span> <span class=\\"token punctuation\\">{</span> ComponentNamed <span class=\\"token punctuation\\">}</span> <span class=\\"token keyword\\">from</span> <span class=\\"token string\\">\\"./component\\"</span><span class=\\"token punctuation\\">;</span>
   <span class=\\"token keyword\\">import</span> <span class=\\"token punctuation\\">{</span> Component <span class=\\"token keyword\\">as</span> Alias <span class=\\"token punctuation\\">}</span> <span class=\\"token keyword\\">from</span> <span class=\\"token string\\">\\"./component\\"</span><span class=\\"token punctuation\\">;</span>
@@ -63,16 +40,15 @@ export let id = undefined;
 <!-- example-end -->
 
 <h2 id=\\"heading-2\\">heading 2</h2>
-
-
 <!-- example-start tests/__fixtures__/Heading.svelte -->
 
-<div class=\\"eval\\">
-<h1 {id}>
-  <slot />
-</h1>
-</div>
-<pre><code>{@html \`<span class=\\"token tag\\"><span class=\\"token tag\\"><span class=\\"token punctuation\\">&lt;</span>script</span><span class=\\"token punctuation\\">></span></span><span class=\\"token script\\"><span class=\\"token language-javascript\\">
+
+            <iframe
+              title=\\"Heading example\\"
+              src=\\"/examples/Heading.svelte.html\\"
+              loading=\\"lazy\\"
+              
+            /><pre><code>{@html \`<span class=\\"token tag\\"><span class=\\"token tag\\"><span class=\\"token punctuation\\">&lt;</span>script</span><span class=\\"token punctuation\\">></span></span><span class=\\"token script\\"><span class=\\"token language-javascript\\">
   <span class=\\"token keyword\\">import</span> ComponentDefault <span class=\\"token keyword\\">from</span> <span class=\\"token string\\">\\"./component\\"</span><span class=\\"token punctuation\\">;</span>
   <span class=\\"token keyword\\">import</span> <span class=\\"token punctuation\\">{</span> ComponentNamed <span class=\\"token punctuation\\">}</span> <span class=\\"token keyword\\">from</span> <span class=\\"token string\\">\\"./component\\"</span><span class=\\"token punctuation\\">;</span>
   <span class=\\"token keyword\\">import</span> <span class=\\"token punctuation\\">{</span> Component <span class=\\"token keyword\\">as</span> Alias <span class=\\"token punctuation\\">}</span> <span class=\\"token keyword\\">from</span> <span class=\\"token string\\">\\"./component\\"</span><span class=\\"token punctuation\\">;</span>
@@ -94,7 +70,6 @@ export let id = undefined;
 
 
 <!-- example-end -->
-
 
 "
 `;
@@ -164,31 +139,7 @@ exports[`processReadme >  2`] = `
 `;
 
 exports[`processReadme >  3`] = `
-"
-<script context=\\"module\\">
-
-</script>
-<script>
-import ComponentDefault from \\"./component\\";
-import { ComponentNamed } from \\"./component\\";
-import { Component as Alias } from \\"./component\\";
-export let type = \\"button\\";
-export let id = undefined;
-</script>
-<style>
-
-  button {
-    color: red;
-  }
-
-  h1 {
-    font-size: 2rem;
-  }
-
-</style>
-<h1 id=\\"heading\\">heading</h1>
-
-
+"<h1 id=\\"heading\\">heading</h1>
 <!-- example-start -->
 <!-- example-end -->
 
@@ -197,12 +148,13 @@ export let id = undefined;
 
 <!-- example-start ./tests/__fixtures__/Button.svelte -->
 
-<div class=\\"eval\\">
-<button {type}>
-  <slot />
-</button>
-</div>
-<pre><code>{@html \`<span class=\\"token tag\\"><span class=\\"token tag\\"><span class=\\"token punctuation\\">&lt;</span>script</span><span class=\\"token punctuation\\">></span></span><span class=\\"token script\\"><span class=\\"token language-javascript\\">
+
+            <iframe
+              title=\\"Button example\\"
+              src=\\"/examples/Button.svelte.html\\"
+              loading=\\"lazy\\"
+              
+            /><pre><code>{@html \`<span class=\\"token tag\\"><span class=\\"token tag\\"><span class=\\"token punctuation\\">&lt;</span>script</span><span class=\\"token punctuation\\">></span></span><span class=\\"token script\\"><span class=\\"token language-javascript\\">
   <span class=\\"token keyword\\">import</span> ComponentDefault <span class=\\"token keyword\\">from</span> <span class=\\"token string\\">\\"./component\\"</span><span class=\\"token punctuation\\">;</span>
   <span class=\\"token keyword\\">import</span> <span class=\\"token punctuation\\">{</span> ComponentNamed <span class=\\"token punctuation\\">}</span> <span class=\\"token keyword\\">from</span> <span class=\\"token string\\">\\"./component\\"</span><span class=\\"token punctuation\\">;</span>
   <span class=\\"token keyword\\">import</span> <span class=\\"token punctuation\\">{</span> Component <span class=\\"token keyword\\">as</span> Alias <span class=\\"token punctuation\\">}</span> <span class=\\"token keyword\\">from</span> <span class=\\"token string\\">\\"./component\\"</span><span class=\\"token punctuation\\">;</span>
@@ -226,16 +178,15 @@ export let id = undefined;
 <!-- example-end -->
 
 <h2 id=\\"heading-2\\">heading 2</h2>
-
-
 <!-- example-start tests/__fixtures__/Heading.svelte -->
 
-<div class=\\"eval\\">
-<h1 {id}>
-  <slot />
-</h1>
-</div>
-<pre><code>{@html \`<span class=\\"token tag\\"><span class=\\"token tag\\"><span class=\\"token punctuation\\">&lt;</span>script</span><span class=\\"token punctuation\\">></span></span><span class=\\"token script\\"><span class=\\"token language-javascript\\">
+
+            <iframe
+              title=\\"Heading example\\"
+              src=\\"/examples/Heading.svelte.html\\"
+              loading=\\"lazy\\"
+              
+            /><pre><code>{@html \`<span class=\\"token tag\\"><span class=\\"token tag\\"><span class=\\"token punctuation\\">&lt;</span>script</span><span class=\\"token punctuation\\">></span></span><span class=\\"token script\\"><span class=\\"token language-javascript\\">
   <span class=\\"token keyword\\">import</span> ComponentDefault <span class=\\"token keyword\\">from</span> <span class=\\"token string\\">\\"./component\\"</span><span class=\\"token punctuation\\">;</span>
   <span class=\\"token keyword\\">import</span> <span class=\\"token punctuation\\">{</span> ComponentNamed <span class=\\"token punctuation\\">}</span> <span class=\\"token keyword\\">from</span> <span class=\\"token string\\">\\"./component\\"</span><span class=\\"token punctuation\\">;</span>
   <span class=\\"token keyword\\">import</span> <span class=\\"token punctuation\\">{</span> Component <span class=\\"token keyword\\">as</span> Alias <span class=\\"token punctuation\\">}</span> <span class=\\"token keyword\\">from</span> <span class=\\"token string\\">\\"./component\\"</span><span class=\\"token punctuation\\">;</span>
@@ -257,9 +208,6 @@ export let id = undefined;
 
 
 <!-- example-end -->
-
-
-
 
 "
 `;

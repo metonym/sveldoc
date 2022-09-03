@@ -6,7 +6,16 @@ import { pluginIndex } from "./plugin-index";
 import { pluginReadme } from "./plugin-readme";
 import { preprocessReadme } from "./preprocess-readme";
 
-type CreateViteConfig = (options?: UserConfig) => UserConfig & {
+export interface CreateViteConfigOptions extends UserConfig {
+  /**
+   * Set to `true` to not apply default
+   * GitHub Markdown styles to iframes.
+   * @default false
+   */
+  resetStyles?: boolean;
+}
+
+type CreateViteConfig = (options?: CreateViteConfigOptions) => UserConfig & {
   test: {
     globals: boolean;
     environment?: string;
@@ -14,6 +23,8 @@ type CreateViteConfig = (options?: UserConfig) => UserConfig & {
 };
 
 export const createViteConfig: CreateViteConfig = (options) => {
+  const resetStyles = options?.resetStyles === true;
+
   return {
     ...options,
     resolve: {
@@ -24,7 +35,9 @@ export const createViteConfig: CreateViteConfig = (options) => {
       },
     },
     plugins: [
-      pluginIndex(),
+      pluginIndex({
+        resetStyles,
+      }),
       svelte({
         extensions: [".svelte", ".md"],
         preprocess: [typescript(), preprocessReadme()],
@@ -34,9 +47,6 @@ export const createViteConfig: CreateViteConfig = (options) => {
     test: {
       globals: true,
       environment: "jsdom",
-    },
-    optimizeDeps: {
-      exclude: ["prism-svelte"],
     },
   };
 };

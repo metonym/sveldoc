@@ -1,5 +1,4 @@
-import { typescript } from "svelte-preprocess";
-import { parse, preprocess } from "svelte/compiler";
+import { parse } from "svelte/compiler";
 
 interface ParseComponentOptions {
   source: string;
@@ -12,6 +11,7 @@ interface ParsedComponent {
   module: string[];
 }
 
+// TODO: allow examples to use TypeScript
 export const parseComponent = async ({
   source: raw_source,
   filename,

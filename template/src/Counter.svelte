@@ -15,6 +15,6 @@
   export let count: number;
 </script>
 
-<button on:click on:click={() => count++}>
+<button type="button" on:click on:click={() => count++}>
   Increment the count: {count}
 </button>
