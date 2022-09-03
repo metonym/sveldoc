@@ -5,6 +5,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.10.0](https://github.com/metonym/sveldoc/releases/tag/v0.10.0) - 2022-09-03
+
+**Breaking Changes**
+
+- rename `createViteConfig` to `defineConfig`
+
+**Features**
+
+- set default color for placeholder text
+- add option to inject additional `styles` into main `index.html`
+- add option to configure `branch` for rewritten relative URLs
+
+**Fixes**
+
+- correctly apply default Vite config `base` value (default is `./`)
+
 ## [0.9.0](https://github.com/metonym/sveldoc/releases/tag/v0.9.0) - 2022-09-03
 
 **Features**
