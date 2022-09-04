@@ -1,5 +1,6 @@
 node_modules
 dist
+public
 package
 .DS_Store
 *.svelte.html

@@ -44,6 +44,10 @@ export const defineConfig: DefineConfig = (options) => {
   return {
     ...options,
     base,
+    build: {
+      outDir: "public",
+      ...options?.build,
+    },
     resolve: {
       ...options?.resolve,
       alias: {
