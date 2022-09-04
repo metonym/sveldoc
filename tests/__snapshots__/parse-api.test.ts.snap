@@ -1,0 +1,267 @@
+// Vitest Snapshot v1
+
+exports[`parseApi > parses the component API correctly 1`] = `
+[
+  {
+    "comments": "/** This is a comment */",
+    "default_value": "0",
+    "is_accessor": false,
+    "is_arrow_function": false,
+    "is_const": false,
+    "is_function_declaration": false,
+    "is_let": true,
+    "is_required": false,
+    "prop_name": "prop_optional",
+    "prop_type_inferred": undefined,
+    "prop_types": [],
+    "references_type": false,
+  },
+  {
+    "comments": null,
+    "default_value": "0",
+    "is_accessor": false,
+    "is_arrow_function": false,
+    "is_const": false,
+    "is_function_declaration": false,
+    "is_let": true,
+    "is_required": false,
+    "prop_name": "prop_optional_2",
+    "prop_type_inferred": undefined,
+    "prop_types": [
+      "Optional2",
+    ],
+    "references_type": true,
+  },
+  {
+    "comments": "/**
+* This is a multiline comment.
+*/",
+    "default_value": undefined,
+    "is_accessor": false,
+    "is_arrow_function": undefined,
+    "is_const": false,
+    "is_function_declaration": false,
+    "is_let": true,
+    "is_required": true,
+    "prop_name": "prop_required",
+    "prop_type_inferred": undefined,
+    "prop_types": [],
+    "references_type": false,
+  },
+  {
+    "comments": null,
+    "default_value": "0",
+    "is_accessor": false,
+    "is_arrow_function": false,
+    "is_const": false,
+    "is_function_declaration": false,
+    "is_let": true,
+    "is_required": false,
+    "prop_name": "prop_union_type",
+    "prop_type_inferred": undefined,
+    "prop_types": [
+      "number",
+      "Optional2",
+    ],
+    "references_type": true,
+  },
+  {
+    "comments": null,
+    "default_value": "(text) => false",
+    "is_accessor": false,
+    "is_arrow_function": true,
+    "is_const": false,
+    "is_function_declaration": false,
+    "is_let": true,
+    "is_required": false,
+    "prop_name": "prop_fn",
+    "prop_type_inferred": undefined,
+    "prop_types": [],
+    "references_type": false,
+  },
+  {
+    "comments": null,
+    "default_value": undefined,
+    "is_accessor": false,
+    "is_arrow_function": false,
+    "is_const": true,
+    "is_function_declaration": false,
+    "is_let": false,
+    "is_required": false,
+    "prop_name": "prop_const",
+    "prop_type_inferred": "null",
+    "prop_types": [],
+    "references_type": false,
+  },
+  {
+    "comments": null,
+    "default_value": "() => {}",
+    "is_accessor": true,
+    "is_arrow_function": true,
+    "is_const": true,
+    "is_function_declaration": false,
+    "is_let": false,
+    "is_required": false,
+    "prop_name": "accessor",
+    "prop_type_inferred": undefined,
+    "prop_types": [],
+    "references_type": false,
+  },
+  {
+    "comments": null,
+    "default_value": undefined,
+    "is_accessor": true,
+    "is_arrow_function": false,
+    "is_const": false,
+    "is_function_declaration": true,
+    "is_let": false,
+    "is_required": false,
+    "prop_name": "accessor2",
+    "prop_type_inferred": undefined,
+    "prop_types": [],
+    "references_type": false,
+  },
+]
+`;
+
+exports[`parseApi > parses the component API correctly 2`] = `
+[
+  {
+    "comments": null,
+    "event_type": "dispatched",
+    "prop_name": "clicked",
+    "prop_types": [
+      "Option2",
+    ],
+    "references_type": false,
+  },
+  {
+    "comments": "/** This is a comment. */",
+    "event_type": "dispatched",
+    "prop_name": "event-2",
+    "prop_types": [
+      "number",
+      "Option3",
+    ],
+    "references_type": true,
+  },
+  {
+    "comments": null,
+    "event_type": "dispatched",
+    "prop_name": "event3",
+    "prop_types": [
+      "number",
+    ],
+    "references_type": false,
+  },
+  {
+    "element_type": "Element",
+    "event_modifiers": [],
+    "event_name": "click",
+    "event_type": "forwarded",
+  },
+  {
+    "element_type": "InlineComponent",
+    "event_modifiers": [],
+    "event_name": "click",
+    "event_type": "forwarded",
+  },
+]
+`;
+
+exports[`parseApi > parses the component API correctly 3`] = `
+[
+  {
+    "comments": "/** this is a comment */",
+    "is_default": false,
+    "is_named": true,
+    "references_type": false,
+    "slot_name": "a",
+    "slot_props": [
+      {
+        "comments": "/** this is another comment */",
+        "prop_name": "value",
+        "prop_types": [
+          "number",
+        ],
+        "references_type": false,
+      },
+    ],
+  },
+  {
+    "comments": null,
+    "is_default": false,
+    "is_named": true,
+    "references_type": false,
+    "slot_name": "b-2",
+    "slot_props": [
+      {
+        "comments": "/** this is another comment for this prop */",
+        "prop_name": "value",
+        "prop_types": [
+          "MyType",
+        ],
+        "references_type": true,
+      },
+      {
+        "comments": "/** @see */",
+        "prop_name": "value-2",
+        "prop_types": [
+          "any",
+        ],
+        "references_type": false,
+      },
+    ],
+  },
+  {
+    "comments": null,
+    "is_default": true,
+    "is_named": false,
+    "references_type": false,
+    "slot_name": "default",
+    "slot_props": [
+      {
+        "comments": null,
+        "prop_name": "fn",
+        "prop_types": [
+          "(name?: string) => void",
+        ],
+        "references_type": false,
+      },
+    ],
+  },
+]
+`;
+
+exports[`parseApi > parses the component API correctly 4`] = `
+"
+  <script context=\\"module\\">export const get = () => { };
+</script>
+  <script>import Component from \\"./Component.svelte\\";
+import ComponentDefault2, { C2 } from \\"./Component.svelte\\";
+import { ComponentNamed, ComponentNamed2 } from \\"./Component.svelte\\";
+import { Component as ComponentAlias } from \\"./Component.svelte\\";
+/** This is a comment */
+export let prop_optional = '0';
+export let prop_optional_2 = 0;
+/**
+ * This is a multiline comment.
+ */
+export let prop_required;
+export let prop_union_type = 0;
+export let prop_fn = (text) => false;
+export const prop_const = null;
+export const accessor = () => { };
+export function accessor2(a, b) {
+    return a + b;
+}
+const dispatch = createEventDispatcher();
+</script>
+
+  <div {...$$restProps} on:click></div>
+
+  <Component {...$$restProps} on:click />
+
+  <style></style>
+    "
+`;

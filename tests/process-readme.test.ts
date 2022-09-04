@@ -1,4 +1,4 @@
-import { test, expect, describe } from "vitest";
+import { it, expect, describe } from "vitest";
 import { processReadme } from "../src/process-readme";
 
 const source = `
@@ -28,7 +28,7 @@ Another line
     `;
 
 describe("processReadme", () => {
-  test("", async () => {
+  it("parses the Markdown correctly", async () => {
     const result_eval = await processReadme({ source, filename: "" });
     expect(result_eval.code).toMatchSnapshot();
     expect(result_eval.dependencies.length).toEqual(2);
